@@ -1,9 +1,6 @@
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
-import Parallex from "../components/Parallex";
-import Project from "../components/Home/Project";
-import Blog from "../components/Home/Blog";
 import Activity from "../components/Home/Activity";
 import Partnership from "../components/Partnership";
 

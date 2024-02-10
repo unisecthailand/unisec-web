@@ -4,7 +4,7 @@ const HomeCard = (props) => {
       <div className="bg-custom-primary relative rounded-2xl border-2 border-gray-600 z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 relative">
           <div
-            className="rounded-l-2xl md:rounded-l-2xl"
+            className="rounded-b-none rounded-t-2xl md:rounded-r-none md:rounded-l-2xl lg:rounded-r-none lg:rounded-l-2xl"
             style={{
               backgroundImage: `url('${
                 props.image ||

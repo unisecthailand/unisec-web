@@ -10,7 +10,6 @@ import fs from "fs";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from 'remark-gfm';
-import { render } from "react-dom";
 
 import sortByTimestamp from "../../utils/sortByTimestamp";
 import { getAllArticles, getArticlesById } from "../../utils/articles";
@@ -44,7 +43,7 @@ const Blog = (props) => {
             </div>
           </div>
           <div className="container mx-auto pt-4 flex justify-center">
-            <iframe width="800" height="450"
+            <iframe width="960" height="540"
               src={"https://www.youtube.com/embed/" + frontmatter.youtube}>
             </iframe>
           </div>
