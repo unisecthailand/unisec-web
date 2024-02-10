@@ -83,11 +83,23 @@ const Blog = (props) => {
                 {frontmatter.title}
               </h1>
               <div className="text-gray-100 text-center mt-16 text-shadow">
-                {new Date(frontmatter.date).toLocaleDateString("en-EN", {
+                {
+                frontmatter.date_to == undefined ? 
+                new Date(frontmatter.date).toLocaleDateString("en-EN", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
-                })}
+                }) :
+                new Date(frontmatter.date).toLocaleDateString("en-EN", {
+                  month: "short",
+                  day: "numeric",
+                }) + " - " +
+                new Date(frontmatter.date_to).toLocaleDateString("en-EN", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })
+                }
               </div>
             </div>
           </Parallex>

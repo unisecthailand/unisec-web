@@ -2,6 +2,7 @@
 title: "Cansat Leader Training Program 11"
 type: "ACTIVITY"
 date: "2022-08-17"
+date_to: "2022-08-31"
 cover: "/assets/cltp11/cltp11.jpg"
 author: "UNISEC Thailand"
 description: "Training Program By UNISEC Global"
