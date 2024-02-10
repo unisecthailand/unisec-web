@@ -91,12 +91,12 @@ const Blog = (props) => {
                   day: "numeric",
                 }) :
                 new Date(frontmatter.date).toLocaleDateString("en-EN", {
-                  month: "short",
+                  month: "long",
                   day: "numeric",
                 }) + " - " +
                 new Date(frontmatter.date_to).toLocaleDateString("en-EN", {
                   year: "numeric",
-                  month: "short",
+                  month: "long",
                   day: "numeric",
                 })
                 }
