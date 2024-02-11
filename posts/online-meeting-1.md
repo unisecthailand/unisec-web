@@ -13,4 +13,4 @@ Space Technology ไม่ใช่เรื่องไกลตัว
 # Files
 * [**Schedule**](/assets/meeting/meeting-schedule-1.pdf)
 * [**Report**]()
-* [**Powerpoint**]()
+* [**Powerpoint**](/assets/meeting/meeting-powerpoint-1.pdf)
