@@ -4,7 +4,7 @@ type: "ACTIVITY"
 date: "2022-08-17"
 date_to: "2022-08-31"
 cover: "/assets/cltp11/cltp11.jpg"
-author: "UNISEC Thailand"
+author: "UNISEC Global"
 description: "Cansat Leader Training Program  เป็นค่ายฝึกอบรมความรู้CubeSat นานาชาติ เพื่อนำความรู้กับไปส่งต่อภายในประเทศ"
 ---
 
