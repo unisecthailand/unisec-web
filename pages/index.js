@@ -18,7 +18,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 function Home(props) {
-  const latestBlogs = sortByTimestamp(props.activities).slice(0,4);
+  const blogs = props.activities.concat(props.meetings)
+  const latestBlogs = sortByTimestamp(blogs).slice(0,4);
+  console.log(latestBlogs)
   const [index, setIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
