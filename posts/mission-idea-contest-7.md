@@ -2,7 +2,7 @@
 title: "The 7th Mission Idea Contest"
 type: "ACTIVITY"
 date: "2021-02-02"
-cover: "/assets/source/mic7.png"
+cover: "/assets/mic/mic7.png"
 author: "UNISEC Thailand"
 description: "The Mission Idea Contest for Deep Space Science and Exploration with Nano/Micro Satellite "
 ---

@@ -2,7 +2,7 @@
 title: "UNISEC-Thailand 1st Online Meeting"
 type: "MEETING"
 date: "2024-02-03"
-cover: "/assets/source/online-meeting-1.png"
+cover: "/assets/meeting/online-meeting-1.png"
 author: "UNISEC Thailand"
 description: "Febuary 3, 2024 20:00-22:00pm"
 youtube: "z2gxz2wRx6o"

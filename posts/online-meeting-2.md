@@ -1,0 +1,17 @@
+---
+title: "UNISEC-Thailand 2nd Online Meeting"
+type: "MEETING"
+date: "2024-03-02"
+cover: "/assets/meeting/online-meeting-2.jpg"
+cover4b3: "/assets/meeting/online-meeting-2-4b3.jpg"
+author: "UNISEC Thailand"
+description: "March 2, 2024 20:00-22:00pm"
+youtube: "none"
+---
+
+# Theme
+อาชีพในวงการอวกาศ
+# Files
+* [**Schedule**]()
+* [**Report**]()
+* [**Powerpoint**]()

@@ -33,7 +33,7 @@ const Blog = (props) => {
             <img src={props.frontmatter.cover ?? "/assets/space.webp"} className="meeting-image"></img>
           </div>
           <div className="bg-custom-primary">
-            <div className="container mx-auto p-8 border-b-2 border-white">
+              <div className={frontmatter.youtube != 'none' ? "container mx-auto p-8 border-b-2 border-white" : "container mx-auto p-8"}>
               <h1 className="break-words font-bold text-5xl font-helvethaica-med-cond my-4">
                 {frontmatter.title}
               </h1>
@@ -42,11 +42,13 @@ const Blog = (props) => {
               </article>
             </div>
           </div>
-          <div className="container mx-auto pt-4 flex justify-center">
-            <iframe width="960" height="540"
-              src={"https://www.youtube.com/embed/" + frontmatter.youtube}>
-            </iframe>
-          </div>
+          {frontmatter.youtube != 'none' &&
+            <div className="container mx-auto pt-4 flex justify-center">
+              <iframe width="960" height="540"
+                src={"https://www.youtube.com/embed/" + frontmatter.youtube}>
+              </iframe>
+            </div>
+          }
         </main>
   
         <footer className="absolute top-full w-full">
