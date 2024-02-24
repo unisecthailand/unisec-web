@@ -150,6 +150,14 @@ a {
     max-height: 35rem;
 }
 
+.logo {
+    display: none;
+    position: absolute;
+    left: 100px;
+    top: 180px;
+    width: 800px;
+}
+
 @media screen and (max-width: 1024px) {
     .main-logo {
         padding-left: 2rem;

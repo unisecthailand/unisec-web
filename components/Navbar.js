@@ -45,27 +45,9 @@ const Navbar = (props) => {
       text: "Home",
       link: "/",
     },
-    //{
-    // text: "Blog",
-    //  link: "/blog",
-    //},
     {
       text: "Activity",
       link: "/activity",
-      // children: [
-      //   {
-      //     text: "Camp",
-      //     link: "/activity?page=camp",
-      //   },
-      //   {
-      //     text: "Competition",
-      //     link: "/activity?page=competition",
-      //   },
-      //   {
-      //     text: "Conference",
-      //     link: "/activity?page=conference",
-      //   },
-      // ],
     },
     {
       text: "About",
@@ -92,14 +74,17 @@ const Navbar = (props) => {
         } transition duration-300`}
       >
         <div className="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3">
-          <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12">
-            <Link href="/">
-              <img
-                src="/assets/logo-w.webp"
-                className="w-auto h-10 cursor-pointer"
-                alt="UNISEC-Thailand"
-              />
-            </Link>
+          <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-14">
+            <div className="logox">
+              <Link href="/">
+                <img
+                  src="/assets/logo-w.webp"
+                  className="logo cursor-pointer"
+                  //className="w-auto h-10 cursor-pointer"
+                  alt="UNISEC-Thailand"
+                />
+              </Link>
+            </div>
           </div>
           <div className={`hidden md:grid grid-cols-3`}>
             {menus.map(({ text, link, children }, i) => (

@@ -34,6 +34,15 @@ function Home(props) {
     console.log("seconds", latestBlogs[index]);
   }, [index]);
 
+  useEffect(() => {
+    const handleScroll = event => {
+      console.log(window.innerWidth);
+      console.log(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-gradient">
       <Header />
@@ -41,11 +50,22 @@ function Home(props) {
         <Navbar />
         <br></br>
         <div className="pt-16 px-4 lg:px-16 md:px-8 lg:pb-16">
-          <h2 className="text-5xl font-helvethaica-blk-cond mb-8">
-            Welcome to Unisec Thailand
-          </h2>
-          <div className="grid gap-8 main-logo">
-            <img src="/assets/logo-w.webp"></img>
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="grid gap-8 main-logo">
+              <img src="/assets/logo-w.webp"></img>
+            </div>
+            <div className="relative mb-16 m-4">
+              <div className="bg-custom-primary relative rounded-2xl border-2 border-white z-20">
+                <div className="p-6 text-sm xl:text-base" data-aos="fade">
+                  UNISEC-Global is an international nonprofit body, consisting of
+                  local-chapters across the world. Since its establishment in
+                  November 2013 in Japan, UNISEC-Global has provided a forum every
+                  year to promote practical space development activities, mainly at
+                  university level.
+                </div>
+              </div>
+              <div className="absolute w-full top-3 left-3 rounded-2xl bg-custom-primary border-2 border-white z-10 h-full"></div>
+            </div>
           </div>
         </div>
         <Activity activity={latestBlogs[index]} />
