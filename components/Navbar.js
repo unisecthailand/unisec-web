@@ -38,7 +38,7 @@ const Menus = ({ text, link, isOpen, children }) => (
   </div>
 );
 
-const Navbar = (props) => {
+const Navbar = ({page}) => {
   const [isOpen, setOpen] = useState(false);
   const menus = [
     {
@@ -77,12 +77,20 @@ const Navbar = (props) => {
           <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-14">
             <div className="logox">
               <Link href="/">
-                <img
-                  src="/assets/logo-w.webp"
-                  className="logo cursor-pointer"
-                  //className="w-auto h-10 cursor-pointer"
-                  alt="UNISEC-Thailand"
-                />
+                {page == "home" ?
+                  <img
+                    src="/assets/logo-w.webp"
+                    className="cursor-pointer"
+                    id="logo"
+                    //className="w-auto h-10 cursor-pointer"
+                    alt="UNISEC-Thailand"
+                  /> :
+                  <img
+                    src="/assets/logo-w.webp"
+                    className="w-auto h-10 cursor-pointer"
+                    alt="UNISEC-Thailand"
+                  />
+                }
               </Link>
             </div>
           </div>

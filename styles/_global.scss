@@ -149,12 +149,14 @@ a {
     max-height: 35rem;
 }
 
-.logo {
-    display: none;
+#logo {
+    display: block;
     position: absolute;
-    left: 100px;
-    top: 180px;
-    width: 800px;
+    left: 48px;
+    top: 100px;
+    width: 480px;
+    //top: 8px;
+    //width: 112px;
 }
 
 @media screen and (max-width: 1024px) {

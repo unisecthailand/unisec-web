@@ -5,7 +5,7 @@ const HomeCardList = (props) => {
   const card = props.cards;
   if (card != null) {
     return (
-      <div className="animaiton grid-stair my-8 lg:my-16 grid grid-cols-1 gap-8 md:gap-8 lg:gap-16 lg:gap-y-0 p-8">
+      <div className="animaiton grid-stair my-2 lg:my-2 grid grid-cols-1 gap-8 md:gap-8 lg:gap-16 lg:gap-y-0 p-8">
         <Link href={`/${props.type}/` + card.id}>
           <div data-aos="fade-up">
             <HomeCard

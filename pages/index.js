@@ -14,6 +14,7 @@ import sortByTimestamp from "../utils/sortByTimestamp";
 import { getAllArticles } from "../utils/articles";
 
 import Link from "next/link";
+import { useRouter } from "next/router"
 
 import { useState, useEffect } from "react";
 
@@ -34,29 +35,62 @@ function Home(props) {
     console.log("seconds", latestBlogs[index]);
   }, [index]);
 
-  useEffect(() => {
-    const handleScroll = event => {
-      console.log(window.innerWidth);
-      console.log(window.scrollY);
-    };
+  const handleScroll = event => {
+  try{
+    var pp = (250-window.scrollY)/250 *100;
+    if(pp < 0) pp = 0;
+    if(window.innerWidth > 1280){
+      var maxWidth = 520;
 
+      document.getElementById("logo").style.left = (48+((window.innerWidth/2-maxWidth)/2-48)/100*pp) + "px";
+      document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
+      document.getElementById("logo").style.top = (8+(108-8)/100*pp) + "px";
+
+    } else if(window.innerWidth < 768){
+      var pp = (150-window.scrollY)/150 *100;
+      if(pp < 0) pp = 0;
+
+      var maxWidth = window.innerWidth-120;
+
+      document.getElementById("logo").style.left = (48+(60-48)/100*pp) + "px";
+      document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
+      document.getElementById("logo").style.top = (8+(80-8)/100*pp) + "px";
+      document.getElementById("logo-block").style.height = (20 + maxWidth/113*40) + "px"
+
+    } else{
+      var maxWidth = window.innerWidth/2-120;
+      var offsetTop = (document.getElementById("home-text").offsetHeight-150)/2;
+
+      document.getElementById("logo").style.left = "48px";
+      document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
+      document.getElementById("logo").style.top = (8+(100+offsetTop-8)/100*pp) + "px";
+    }
+  }
+  catch(e){}
+};
+
+  const router = useRouter()
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', handleScroll);
+    router.events.on('routeChangeComplete', handleScroll);
+  }, [])
+
+  handleScroll();
 
   return (
     <div className="relative min-h-screen bg-gradient">
       <Header />
       <main className="pb-20">
-        <Navbar />
+        <Navbar page="home"/>
         <br></br>
-        <div className="pt-16 px-4 lg:px-16 md:px-8 lg:pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="grid gap-8 main-logo">
-              <img src="/assets/logo-w.webp"></img>
+        <div className="pt-16 px-4 lg:px-16 md:px-8 lg:pb-0">
+          <div className="grid mb-12 grid-cols-1 md:grid-cols-2">
+            <div className="grid gap-8" id="logo-block">
             </div>
-            <div className="relative mb-16 m-4">
+            <div className="relative m-4" id="home-text">
               <div className="bg-custom-primary relative rounded-2xl border-2 border-white z-20">
-                <div className="p-6 text-sm xl:text-base" data-aos="fade">
+                <div className="p-6 text-sm xl:text-base lg:h-44" data-aos="fade">
                   UNISEC-Global is an international nonprofit body, consisting of
                   local-chapters across the world. Since its establishment in
                   November 2013 in Japan, UNISEC-Global has provided a forum every
