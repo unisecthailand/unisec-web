@@ -37,6 +37,7 @@ $contrast: #e5035f;
 
 html,
 body {
+    scroll-behavior: smooth;
     @apply bg-custom-primary;
     @apply text-white;
     padding: 0;
@@ -140,17 +141,17 @@ a {
     background-color: lighten($primary, 10%);
 }
 
-.main-logo{
+.main-logo {
     padding-left: 4rem;
     padding-right: 4rem;
 }
 
-.meeting-image{
+.meeting-image {
     max-height: 35rem;
 }
 
 @media screen and (max-width: 1024px) {
-    .main-logo{
+    .main-logo {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -246,19 +247,16 @@ article img {
     }
 }
 
-
 .markdown {
-  table {
-    border-collapse: collapse;
-  }
-
-  th,
-  td {
-    padding: 6px 13px;
-    border: 1px solid white;
-  }
-
-  p {
-    line-height: 1.5;
-  }
+    table {
+        border-collapse: collapse;
+    }
+    th,
+    td {
+        padding: 6px 13px;
+        border: 1px solid white;
+    }
+    p {
+        line-height: 1.5;
+    }
 }
