@@ -45,17 +45,20 @@ function Home(props) {
       document.getElementById("logo").style.left = (48+((window.innerWidth/2-maxWidth)/2-48)/100*pp) + "px";
       document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
       document.getElementById("logo").style.top = (8+(108-8)/100*pp) + "px";
+      document.getElementById("home-text").style.display = "block";
 
     } else if(window.innerWidth < 768){
-      var pp = (150-window.scrollY)/150 *100;
+      var ppMax = (210-100)/(768-414)*(window.innerWidth-414) +100;
+      var pp = (ppMax-window.scrollY)/ppMax *100;
       if(pp < 0) pp = 0;
 
       var maxWidth = window.innerWidth-120;
 
       document.getElementById("logo").style.left = (48+(60-48)/100*pp) + "px";
       document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
-      document.getElementById("logo").style.top = (8+(80-8)/100*pp) + "px";
-      document.getElementById("logo-block").style.height = (20 + maxWidth/113*40) + "px"
+      document.getElementById("logo").style.top = (8+(60-8)/100*pp) + "px";
+      document.getElementById("logo-block").style.height = (maxWidth/113*40)-50 + "px";
+      document.getElementById("home-text").style.display = "none";
 
     } else{
       var maxWidth = window.innerWidth/2-120;
@@ -64,6 +67,7 @@ function Home(props) {
       document.getElementById("logo").style.left = "48px";
       document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
       document.getElementById("logo").style.top = (8+(100+offsetTop-8)/100*pp) + "px";
+      document.getElementById("home-text").style.display = "block";
     }
   }
   catch(e){}
