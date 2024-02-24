@@ -37,31 +37,39 @@ function Home(props) {
 
   const handleScroll = event => {
   try{
+    let userWidth = window.innerWidth;
     var pp = (250-window.scrollY)/250 *100;
     if(pp < 0) pp = 0;
-    if(window.innerWidth > 1280){
+    if(userWidth > 1280){
       var maxWidth = 520;
 
-      document.getElementById("logo").style.left = (48+((window.innerWidth/2-maxWidth)/2-48)/100*pp) + "px";
+      document.getElementById("logo").style.left = (48+((userWidth/2-maxWidth)/2-48)/100*pp) + "px";
       document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
       document.getElementById("logo").style.top = (8+(108-8)/100*pp) + "px";
       document.getElementById("home-text").style.display = "block";
 
-    } else if(window.innerWidth < 768){
-      var ppMax = (210-100)/(768-414)*(window.innerWidth-414) +100;
+    } else if(userWidth < 768){
+      // var ppMax = (210-100)/(768-414)*(window.innerWidth-414) +100;
+      // var pp = (ppMax-window.scrollY)/ppMax *100;
+      // if(pp < 0) pp = 0;
+      // var maxWidth = window.innerWidth-120;
+      // document.getElementById("logo").style.left = (48+(60-48)/100*pp) + "px";
+      // document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
+      // document.getElementById("logo").style.top = (8+(60-8)/100*pp) + "px";
+      // document.getElementById("logo-block").style.height = (maxWidth/113*40)-50 + "px";
+      // document.getElementById("home-text").style.display = "none";
+      var ppMax = 0.31*userWidth-28.6;
       var pp = (ppMax-window.scrollY)/ppMax *100;
       if(pp < 0) pp = 0;
-
-      var maxWidth = window.innerWidth-120;
-
-      document.getElementById("logo").style.left = (48+(60-48)/100*pp) + "px";
+      var maxWidth = userWidth-120;
+      document.getElementById("logo").style.left = (48+0.12*pp) + "px";
       document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
-      document.getElementById("logo").style.top = (8+(60-8)/100*pp) + "px";
+      document.getElementById("logo").style.top = (8+0.52*pp) + "px";
       document.getElementById("logo-block").style.height = (maxWidth/113*40)-50 + "px";
       document.getElementById("home-text").style.display = "none";
 
     } else{
-      var maxWidth = window.innerWidth/2-120;
+      var maxWidth = userWidth/2-120;
       var offsetTop = (document.getElementById("home-text").offsetHeight-150)/2;
 
       document.getElementById("logo").style.left = "48px";
@@ -71,13 +79,17 @@ function Home(props) {
     }
   }
   catch(e){}
-};
+  };
 
   const router = useRouter()
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
     router.events.on('routeChangeComplete', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    }
   }, [])
 
   handleScroll();
