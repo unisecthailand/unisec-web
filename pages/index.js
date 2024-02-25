@@ -21,7 +21,6 @@ import { useState, useEffect } from "react";
 function Home(props) {
   const blogs = props.activities.concat(props.meetings)
   const latestBlogs = sortByTimestamp(blogs).slice(0,4);
-  console.log(latestBlogs)
   const [index, setIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,10 +29,6 @@ function Home(props) {
 
     return () => clearInterval(interval)
   }, [])
-
-  useEffect(() => {
-    console.log("seconds", latestBlogs[index]);
-  }, [index]);
 
   const handleScroll = event => {
   try{
