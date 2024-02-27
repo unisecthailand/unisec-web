@@ -12,6 +12,6 @@ youtube: "none"
 # Theme
 อาชีพในวงการอวกาศ
 # Files
-* [**Schedule**]()
+* [**Schedule**](/assets/meeting/meeting-schedule-2.pdf)
 * [**Report**]()
 * [**Powerpoint**]()
