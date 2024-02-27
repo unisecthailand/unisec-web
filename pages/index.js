@@ -35,6 +35,7 @@ function Home(props) {
     let userWidth = window.innerWidth;
     var pp = (250-window.scrollY)/250 *100;
     if(pp < 0) pp = 0;
+    if(pp > 100) pp = 100;
     if(userWidth > 1280){
       var maxWidth = 520;
 
@@ -56,6 +57,7 @@ function Home(props) {
       var ppMax = 0.31*userWidth-28.6;
       var pp = (ppMax-window.scrollY)/ppMax *100;
       if(pp < 0) pp = 0;
+      if(pp > 100) pp = 100;
       var maxWidth = userWidth-120;
       document.getElementById("logo").style.left = (48+0.12*pp) + "px";
       document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
