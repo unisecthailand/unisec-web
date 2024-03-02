@@ -6,7 +6,7 @@ cover: "/assets/meeting/online-meeting-2.jpg"
 cover4b3: "/assets/meeting/online-meeting-2-4b3.jpg"
 author: "UNISEC Thailand"
 description: "March 2, 2024 20:00-22:00pm"
-youtube: "none"
+youtube: "hV9W-ARSBsg"
 ---
 
 # Theme
