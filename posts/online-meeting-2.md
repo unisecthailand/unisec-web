@@ -14,4 +14,4 @@ youtube: "none"
 # Files
 * [**Schedule**](/assets/meeting/meeting-schedule-2.pdf)
 * [**Report**]()
-* [**Powerpoint**]()
+* [**Powerpoint**](/assets/meeting/meeting-powerpoint-2.pdf)
