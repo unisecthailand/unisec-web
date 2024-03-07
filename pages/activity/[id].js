@@ -19,7 +19,7 @@ const Blog = (props) => {
 
   if(frontmatter.type == "MEETING"){
     return (
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen bg-gradient">
         <Header
           blog
           title={frontmatter.title}
@@ -32,7 +32,7 @@ const Blog = (props) => {
           <div className="flex justify-center">
             <img src={props.frontmatter.cover ?? "/assets/space.webp"} className="meeting-image"></img>
           </div>
-          <div className="bg-custom-primary">
+          <div className="">
               <div className={frontmatter.youtube != 'none' ? "container mx-auto p-8 border-b-2 border-white" : "container mx-auto p-8"}>
               <h1 className="break-words font-bold text-5xl font-helvethaica-med-cond my-4">
                 {frontmatter.title}
@@ -62,7 +62,7 @@ const Blog = (props) => {
   }
   else{
     return (
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen bg-gradient">
         <Header
           blog
           title={frontmatter.title}
@@ -105,7 +105,7 @@ const Blog = (props) => {
               </div>
             </div>
           </Parallex>
-          <div className="bg-custom-primary">
+          <div className="">
             <div className="container mx-auto p-8 border-white">
               <h1 className="break-words font-bold text-5xl font-helvethaica-med-cond my-4">
                 {frontmatter.title}

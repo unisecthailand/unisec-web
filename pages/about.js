@@ -16,7 +16,7 @@ import { getAllArticles } from "../utils/articles";
 
 const About = (props) => {
   return (
-    <div className="relative min-h-screen bg-about">
+    <div className="relative min-h-screen bg-gradient">
       <Header />
 
       <main className="py-20 lg:pt-40 xl:py-20">

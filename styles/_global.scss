@@ -49,7 +49,8 @@ body {
 
 .bg-gradient {
     background: rgb(0, 23, 54);
-    background: linear-gradient(144deg, rgba(0, 23, 54, 1) 0%, rgba(5, 69, 105, 1) 56%, rgba(60, 128, 173, 1) 100%);
+    //background: linear-gradient(144deg, rgba(0, 23, 54, 1) 0%, rgba(5, 69, 105, 1) 56%, rgba(60, 128, 173, 1) 100%);
+    background: linear-gradient(144deg, rgba(0, 23, 54, 1) 0%, rgb(2, 40, 75) 100%);
 }
 
 a {

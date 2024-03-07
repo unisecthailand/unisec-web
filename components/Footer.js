@@ -2,7 +2,7 @@ import Link from "next/link";
 import sortByTimestamp from "../utils/sortByTimestamp";
 const Footer = () => {
   return (
-    <div className="bg-custom-primary-variant bg-opacity-50">
+    <div className="bg-custom-primary-variant bg-opacity-10">
       <div className="container mx-auto py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 py-8 px-16 lg:p-0">
           <div className="md:col-span-2 pl-2">
