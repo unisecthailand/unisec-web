@@ -2,7 +2,7 @@ const ImageCard = ({ image, backgroundSize }) => {
   return (
     <div className="relative">
       <div
-        className="bg-custom-primary relative rounded-2xl border-2 border-white z-20"
+        className="bg-white relative rounded-2xl border-2 border-white z-20"
         style={{
           paddingTop: "100%",
           backgroundImage: `url('${image}')`,
