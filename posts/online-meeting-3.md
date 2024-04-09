@@ -6,7 +6,7 @@ cover: "/assets/meeting/online-meeting-3.jpg"
 cover4b3: "/assets/meeting/online-meeting-3-4b3.jpg"
 author: "UNISEC Thailand"
 description: "April 6, 2024 20:00-22:00pm"
-youtube: "none"
+youtube: "W3ZKV_GYBN8"
 ---
 
 # Theme
@@ -14,4 +14,4 @@ Space Technology in University
 # Files
 * [**Schedule**]()
 * [**Report**]()
-* [**Powerpoint**]()
+* [**Powerpoint**](/assets/meeting/meeting-powerpoint-3.pdf)
