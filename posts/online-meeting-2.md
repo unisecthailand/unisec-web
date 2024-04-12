@@ -13,5 +13,5 @@ youtube: "hV9W-ARSBsg"
 อาชีพในวงการอวกาศ
 # Files
 * [**Schedule**](/assets/meeting/meeting-schedule-2.pdf)
-* [**Report**]()
+* [**Report**](/assets/meeting/meeting-report-2.pdf)
 * [**Powerpoint**](/assets/meeting/meeting-powerpoint-2.pdf)
