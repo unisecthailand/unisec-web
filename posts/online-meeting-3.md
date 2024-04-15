@@ -12,6 +12,6 @@ youtube: "W3ZKV_GYBN8"
 # Theme
 Space Technology in University
 # Files
-* [**Schedule**]()
+* [**Schedule**](/assets/meeting/meeting-schedule-3.pdf)
 * [**Report**]()
 * [**Powerpoint**](/assets/meeting/meeting-powerpoint-3.pdf)
