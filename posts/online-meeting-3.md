@@ -15,3 +15,4 @@ Space Technology in University
 * [**Schedule**](/assets/meeting/meeting-schedule-3.pdf)
 * [**Report**]()
 * [**Powerpoint**](/assets/meeting/meeting-powerpoint-3.pdf)
+* [**CUHAR**](/assets/meeting/meeting-powerpoint-3-CUHAR.pdf)
