@@ -7,7 +7,7 @@ const CardList = (props) => {
 
   if (cards.length != 0) {
     return (
-      <div className="grid-stair my-8 lg:my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-8 lg:gap-16 lg:gap-y-12 p-8">
+      <div className="mb-8 lg:my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-8 lg:gap-12 p-8">
         {cards.map((card, i) => (
           <Link href={`/${props.type}/` + card.id} key={i}>
             <div data-aos="fade-up">

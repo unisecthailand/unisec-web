@@ -33,7 +33,7 @@ const Activity = (props) => {
             </h1>
           </div>
 
-          <div className="flex flex-col lg:grid grid-cols-1">
+          <div className="flex flex-col lg:grid">
             <a className="anchor" id="online-meeting"></a>
             <h1 className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}>
               Online Meeting

@@ -1,7 +1,7 @@
 const Card = (props) => {
   return (
-    <div className="relative cursor-pointer transform hover:translate-x-2 hover:translate-y-2 transition duration-500">
-      <div className="bg-custom-primary relative rounded-2xl border-2 border-gray-600 z-10">
+    <div className="relative h-full cursor-pointer transform hover:translate-x-2 hover:translate-y-2 transition duration-500">
+      <div className="bg-custom-primary relative h-full rounded-2xl border-2 border-gray-600 z-10">
         <div className="relative h-full">
           <div
             className="rounded-t-2xl"

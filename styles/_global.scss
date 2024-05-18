@@ -169,22 +169,17 @@ a {
         >div {
             @apply w-full;
         }
-        >div:nth-child(1) {
-            @apply mb-12;
+        >div:nth-child(2n+1) {
+            @apply mb-8;
         }
-        >div:nth-child(3n+4) {
-            @apply mb-12;
+        >div:nth-child(2n) {
+            @apply mt-12;
         }
-        >div:nth-child(3n+2) {
-            @apply flex;
-            @apply flex-col;
-            @apply justify-center;
-        }
-        >div:nth-child(3n) {
-            @apply flex;
-            @apply flex-col;
-            @apply justify-end;
-        }
+        // >div:nth-child(n) {
+        //     @apply flex;
+        //     @apply flex-col;
+        //     @apply justify-center;
+        // }
     }
 }
 
