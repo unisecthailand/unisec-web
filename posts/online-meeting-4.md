@@ -14,4 +14,4 @@ youtube: "cJyCJuG7ZHc"
 # Files
 * [**Schedule**]()
 * [**Report**]()
-* [**Powerpoint**]()
+* [**Powerpoint**](/assets/meeting/meeting-powerpoint-4.pdf)
