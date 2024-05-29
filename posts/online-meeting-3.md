@@ -13,6 +13,6 @@ youtube: "W3ZKV_GYBN8"
 Space Technology in University
 # Files
 * [**Schedule**](/assets/meeting/meeting-schedule-3.pdf)
-* [**Report**]()
+* [**Report**](/assets/meeting/meeting-report-3.pdf)
 * [**Powerpoint**](/assets/meeting/meeting-powerpoint-3.pdf)
 * [**CUHAR**](/assets/meeting/meeting-powerpoint-3-CUHAR.pdf)
