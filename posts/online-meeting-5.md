@@ -1,0 +1,17 @@
+---
+title: "UNISEC-Thailand 5th Online Meeting"
+type: "MEETING"
+date: "2024-06-01"
+cover: "/assets/meeting/online-meeting-5.jpg"
+cover4b3: "/assets/meeting/online-meeting-5-4b3.jpg"
+author: "UNISEC Thailand"
+description: "June 1, 2024 20:00-21:00pm"
+youtube: "none"
+---
+
+# Theme
+ก้าวแรกในกิจกรรมเทคโนโลยีอวกาศ
+# Files
+* [**Schedule**]()
+* [**Report**]()
+* [**Powerpoint**]()
