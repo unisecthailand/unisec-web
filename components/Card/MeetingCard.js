@@ -8,8 +8,8 @@ const MeetingCard = (props) => {
                 "https://firebasestorage.googleapis.com/v0/b/unisec-web.appspot.com/o/rocket.webp?alt=media&token=b814b524-1359-4c81-ae73-272a8c7147f2"
               }>
           </img>
-          <div className="px-8 py-4 pb-20">
-            <h3 className="font-impact text-2xl">
+          <div className="p-5">
+            <h3 className="font-impact text-2xl tracking-wide">
               {props.title || "Untitled"}
             </h3>
             <div className="text-sm">by {props.author}</div>
@@ -20,7 +20,7 @@ const MeetingCard = (props) => {
                 : ""}
             </div>
           </div>
-          <div className="absolute bottom-0 w-full px-8 py-6 flex flex-row justify-between">
+          {/* <div className="absolute bottom-0 w-full px-8 py-6 flex flex-row justify-between">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const MeetingCard = (props) => {
                 ></path>
               </svg>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="absolute w-full top-3 left-3 rounded-2xl bg-custom-primary border-2 border-gray-600 z-0 h-full"></div>

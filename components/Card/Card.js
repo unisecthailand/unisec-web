@@ -16,7 +16,7 @@ const Card = (props) => {
               paddingTop: "56.25%",
             }}
           ></div>
-          <div className="px-8 py-4 pb-20">
+          <div className="p-5">
             <h3 className="font-impact text-3xl">
               {props.title || "Untitled"}
             </h3>
@@ -28,7 +28,7 @@ const Card = (props) => {
                 : ""}
             </div>
           </div>
-          <div className="absolute bottom-0 w-full px-8 py-6 flex flex-row justify-between">
+          {/* <div className="absolute bottom-0 w-full px-8 py-6 flex flex-row justify-between">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const Card = (props) => {
                 ></path>
               </svg>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="absolute w-full top-3 left-3 rounded-2xl bg-custom-primary border-2 border-gray-600 z-0 h-full"></div>

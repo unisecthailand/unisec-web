@@ -23,17 +23,17 @@ const Activity = (props) => {
       <Header />
       <main className="py-20">
         <Navbar />
-        <div className="container mx-auto gap-8">
-          <div className="relative my-16">
-            <h1 className="font-impact text-8xl lg:text-9xl text-center text-gray-300">
+        <div className="gap-8 xl:px-4">
+          <div className="relative my-2">
+            <h1 className="font-impact text-6xl lg:text-8xl text-center text-gray-300">
               Activity
             </h1>
-            <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 font-impact text-8xl lg:text-9xl text-center ">
+            <h1 className="absolute top-1 left-1/2 transform -translate-x-1/2 font-impact text-6xl lg:text-8xl text-center ">
               Activity
             </h1>
           </div>
 
-          <div className="flex flex-col lg:grid">
+          <div className="flex flex-col lg:grid mt-8">
             <a className="anchor" id="online-meeting"></a>
             <h1 className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}>
               Online Meeting
