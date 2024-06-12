@@ -1,9 +1,9 @@
 ---
 title: "NASA SPACE APPS"
-type: "ACTIVITY"
+type: "UPCOMMING"
 date: "2024-05-14"
 cover: "/assets/nasa-space-app/nasa-space-app.jpg"
-author: "UNISEC Thailand"
+author: "UNISEC Thailand, DRONE ACADEMY Thailand, METAVERSE XR, DRONE SOCCER, Gistda"
 description: ""
 ---
 
