@@ -16,7 +16,7 @@ const HomeCard = (props) => {
               paddingTop: "56.25%",
             }}
           ></div>
-          <div className="px-8 py-4 pb-20">
+          <div className="px-8 py-4 pb-16">
             <h3 className="font-impact text-3xl">
               {props.title || "Untitled"}
             </h3>

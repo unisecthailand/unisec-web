@@ -15,7 +15,7 @@ const Partnership = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto p-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+      <div className="container mx-auto p-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <ImageCard image="/assets/partners/insted.png" />
         <ImageCard image="/assets/partners/astronergy.jpg" />
         <ImageCard image="/assets/partners/cuhar.png" />
