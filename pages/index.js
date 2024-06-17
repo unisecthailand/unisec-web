@@ -19,12 +19,13 @@ import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
 
 function Home(props) {
-  const blogs = props.activities.concat(props.meetings)
+  const blogs = props.meetings.concat(props.upcommings)
   const latestBlogs = sortByTimestamp(blogs).slice(0,4);
   const [index, setIndex] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(seconds => (seconds === 3 ? 0 : seconds + 1));
+      setIndex(seconds => (seconds === latestBlogs.length ? 0 : seconds + 1));
     }, 10000);
 
     return () => clearInterval(interval)
@@ -143,12 +144,16 @@ export async function getStaticProps() {
   const camps = [];
   const competitions = [];
   const conferences = [];
+  const upcommings = [];
   const activities = [];
   const meetings = [];
   const none = [];
 
   articles.forEach((article) => {
     switch (article.type) {
+      case "UPCOMMING":
+        upcommings.push(article);
+        break;
       case "BLOG":
         blogs.push(article);
         break;
@@ -178,6 +183,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      upcommings,
       blogs,
       projects,
       camps,
