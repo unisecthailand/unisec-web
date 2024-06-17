@@ -22,10 +22,10 @@ function Home(props) {
   const blogs = props.meetings.concat(props.upcommings)
   const latestBlogs = sortByTimestamp(blogs).slice(0,4);
   const [index, setIndex] = useState(0);
-
+  console.log(latestBlogs)
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(seconds => (seconds === latestBlogs.length ? 0 : seconds + 1));
+      setIndex(seconds => (seconds === latestBlogs.length-1 ? 0 : seconds + 1));
     }, 10000);
 
     return () => clearInterval(interval)
