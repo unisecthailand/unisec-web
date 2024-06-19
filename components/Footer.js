@@ -3,18 +3,18 @@ import sortByTimestamp from "../utils/sortByTimestamp";
 const Footer = () => {
   return (
     <div className="bg-custom-primary-variant bg-opacity-10">
-      <div className="container mx-auto py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 py-8 px-16 lg:p-0">
-          <div className="md:col-span-2 pl-2">
-            <div className="flex md:block flex-col justify-center items-center">
-              <div className="">
-                <img
-                  src="/assets/logo-w.webp"
-                  className="w-64"
-                  alt="UNISEC-Thailand"
-                />
-              </div>
+      <div className="container mx-auto py-2">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-8 py-6 px-10">
+          <div className="flex flex-col justify-center items-center">
+            <div className="justify-center items-center my-auto pr-4">
+              <img
+                src="/assets/logo-w.webp"
+                className=""
+                alt="UNISEC-Thailand"
+              />
             </div>
+          </div>
+          <div>
             <a
               href="https://www.facebook.com/unisecthailand"
               className="mt-4 flex flex-row justify-start items-end"
@@ -34,7 +34,7 @@ const Footer = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="ml-4">UNISEC-Thailand</div>
+              <div className="ml-4">Facebook</div>
             </a>
             <a
               href="https://www.instagram.com/unisec_thailand/"
