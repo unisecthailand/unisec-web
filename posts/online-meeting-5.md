@@ -13,5 +13,5 @@ youtube: "4Gl62WHzrOs"
 ก้าวแรกในกิจกรรมเทคโนโลยีอวกาศ
 # Files
 * [**Schedule (Comming Soon)**]()
-* [**Report**]()
+* [**Report**](/assets/meeting/meeting-report-5.pdf)
 * [**Powerpoint (Comming Soon)**]()
