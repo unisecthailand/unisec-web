@@ -12,6 +12,6 @@ youtube: "cJyCJuG7ZHc"
 # Theme
 กิจกรรมการแข่งขันด้านเทคโนโลยีอวกาศในระดับเยาวชน
 # Files
-* [**Schedule**]()
+* [**Schedule (Comming Soon)**]()
 * [**Report**](/assets/meeting/meeting-report-4.pdf)
 * [**Powerpoint**](/assets/meeting/meeting-powerpoint-4.pdf)

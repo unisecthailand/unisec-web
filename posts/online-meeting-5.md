@@ -12,6 +12,6 @@ youtube: "4Gl62WHzrOs"
 # Theme
 ก้าวแรกในกิจกรรมเทคโนโลยีอวกาศ
 # Files
-* [**Schedule**]()
+* [**Schedule (Comming Soon)**]()
 * [**Report**]()
-* [**Powerpoint**]()
+* [**Powerpoint (Comming Soon)**]()
