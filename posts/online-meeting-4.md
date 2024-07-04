@@ -9,9 +9,8 @@ description: "May 4, 2024 20:00-21:00pm"
 youtube: "cJyCJuG7ZHc"
 ---
 
-# Theme
+# Topic
 กิจกรรมการแข่งขันด้านเทคโนโลยีอวกาศในระดับเยาวชน
 # Files
-* [**Schedule (Comming Soon)**]()
 * [**Report**](/assets/meeting/meeting-report-4.pdf)
 * [**Powerpoint**](/assets/meeting/meeting-powerpoint-4.pdf)

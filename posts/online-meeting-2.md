@@ -9,7 +9,7 @@ description: "March 2, 2024 20:00-22:00pm"
 youtube: "hV9W-ARSBsg"
 ---
 
-# Theme
+# Topic
 อาชีพในวงการอวกาศ
 # Files
 * [**Schedule**](/assets/meeting/meeting-schedule-2.pdf)

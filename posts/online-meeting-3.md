@@ -9,7 +9,7 @@ description: "April 6, 2024 20:00-22:00pm"
 youtube: "W3ZKV_GYBN8"
 ---
 
-# Theme
+# Topic
 Space Technology in University
 # Files
 * [**Schedule**](/assets/meeting/meeting-schedule-3.pdf)

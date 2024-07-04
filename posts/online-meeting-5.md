@@ -9,9 +9,8 @@ description: "June 1, 2024 20:00-21:00pm"
 youtube: "4Gl62WHzrOs"
 ---
 
-# Theme
+# Topic
 ก้าวแรกในกิจกรรมเทคโนโลยีอวกาศ
 # Files
-* [**Schedule (Comming Soon)**]()
 * [**Report**](/assets/meeting/meeting-report-5.pdf)
 * [**Powerpoint (Comming Soon)**]()
