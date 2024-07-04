@@ -12,5 +12,5 @@ youtube: "none"
 # Topic
 Spaceport America Cup 2024
 # Files
-* [**Report (Comming Soon**]()
+* [**Report (Comming Soon)**]()
 * [**Powerpoint (Comming Soon)**]()
