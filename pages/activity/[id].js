@@ -30,10 +30,10 @@ const Blog = (props) => {
         <main className="pb-20 pt-16">
           <Navbar />
           <div className="flex justify-center">
-            <img src={props.frontmatter.cover ?? "/assets/space.webp"} className="meeting-image"></img>
+            <img src={frontmatter.cover} className="meeting-image"></img>
           </div>
           <div className="">
-              <div className={frontmatter.youtube != 'none' ? "container mx-auto p-8 border-b-2 border-white" : "container mx-auto p-8"}>
+            <div className="container mx-auto p-8 border-b-2 border-white">
               <h1 className="break-words font-bold text-5xl font-helvethaica-med-cond my-4">
                 {frontmatter.title}
               </h1>
@@ -43,10 +43,15 @@ const Blog = (props) => {
             </div>
           </div>
           {frontmatter.youtube != 'none' &&
-            <div className="container mx-auto pt-4 flex justify-center">
+            <div className="container mx-auto p-6 flex justify-center border-b-2 border-white">
               <iframe width="960" height="540"
                 src={"https://www.youtube.com/embed/" + frontmatter.youtube}>
               </iframe>
+            </div>
+          }
+          {props.frontmatter.capture &&
+            <div className="flex justify-center p-6">
+              <img src={frontmatter.capture} className="meeting-image"></img>
             </div>
           }
         </main>
