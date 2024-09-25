@@ -13,4 +13,3 @@ youtube: "Tys1XkeMhIc"
 Spaceport America Cup 2024
 # Files
 * [**Report**](/assets/meeting/meeting-report-5.pdf)
-* [**Powerpoint (Comming Soon)**]()
