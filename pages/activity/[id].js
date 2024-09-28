@@ -27,7 +27,7 @@ const Blog = (props) => {
           author={frontmatter.author}
           cover={frontmatter.cover}
         />
-        <main className="pb-20 pt-16">
+        <main className="pb-20 pt-24">
           <Navbar />
           <div className="flex justify-center">
             <img src={frontmatter.cover} className="meeting-image"></img>
@@ -76,7 +76,7 @@ const Blog = (props) => {
           cover={frontmatter.cover}
         />
 
-        <main className="pb-20">
+        <main className="pb-20 pt-24">
           <Navbar />
           <Parallex
             image={props.frontmatter.cover ?? "/assets/space.webp"}
