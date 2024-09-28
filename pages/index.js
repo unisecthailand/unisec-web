@@ -22,7 +22,7 @@ function Home(props) {
   const blogs = props.meetings.concat(props.upcommings)
   const latestBlogs = sortByTimestamp(blogs).slice(0,4);
   const [index, setIndex] = useState(0);
-  console.log(latestBlogs)
+  //console.log(latestBlogs)
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex(seconds => (seconds === latestBlogs.length-1 ? 0 : seconds + 1));
@@ -37,42 +37,41 @@ function Home(props) {
     var pp = (250-window.scrollY)/250 *100;
     if(pp < 0) pp = 0;
     if(pp > 100) pp = 100;
-    if(userWidth > 1280){
-      var maxWidth = 520;
+    if(userWidth > 960){
+      var maxWidth = 420;
 
       document.getElementById("logo").style.left = (48+((userWidth/2-maxWidth)/2-48)/100*pp) + "px";
-      document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
-      document.getElementById("logo").style.top = (8+(108-8)/100*pp) + "px";
+      document.getElementById("logo").style.width = (121+(maxWidth-121)/100*pp) + "px";
+      document.getElementById("logo").style.top = (11+(60-11)/100*pp) + "px";
       document.getElementById("home-text").style.display = "block";
 
     } else if(userWidth < 768){
-      // var ppMax = (210-100)/(768-414)*(window.innerWidth-414) +100;
-      // var pp = (ppMax-window.scrollY)/ppMax *100;
-      // if(pp < 0) pp = 0;
-      // var maxWidth = window.innerWidth-120;
-      // document.getElementById("logo").style.left = (48+(60-48)/100*pp) + "px";
-      // document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
-      // document.getElementById("logo").style.top = (8+(60-8)/100*pp) + "px";
-      // document.getElementById("logo-block").style.height = (maxWidth/113*40)-50 + "px";
-      // document.getElementById("home-text").style.display = "none";
-      var ppMax = 0.31*userWidth-28.6;
+
+      var ppMax = 0.4*userWidth-28.6;
       var pp = (ppMax-window.scrollY)/ppMax *100;
       if(pp < 0) pp = 0;
       if(pp > 100) pp = 100;
-      var maxWidth = userWidth-120;
-      document.getElementById("logo").style.left = (48+0.12*pp) + "px";
-      document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
-      document.getElementById("logo").style.top = (8+0.52*pp) + "px";
+      var maxWidth = userWidth-260;
+      var offsetTopFactor = 0.22
+      var offsetLeftFactor = 0.8
+      if(userWidth < 560){
+        maxWidth = userWidth-120;
+        offsetTopFactor = 0.5
+        offsetLeftFactor = 0.2
+      }
+      document.getElementById("logo").style.left = (48+offsetLeftFactor*pp) + "px";
+      document.getElementById("logo").style.width = (121+(maxWidth-121)/100*pp) + "px";
+      document.getElementById("logo").style.top = (11+offsetTopFactor*pp) + "px";
       document.getElementById("logo-block").style.height = (maxWidth/113*40)-50 + "px";
       document.getElementById("home-text").style.display = "none";
 
     } else{
-      var maxWidth = userWidth/2-120;
-      var offsetTop = (document.getElementById("home-text").offsetHeight-150)/2;
+      var maxWidth = userWidth/2-121;
+      var offsetTop = (document.getElementById("home-text").offsetHeight-200)/2;
 
       document.getElementById("logo").style.left = "48px";
-      document.getElementById("logo").style.width = (112+(maxWidth-112)/100*pp) + "px";
-      document.getElementById("logo").style.top = (8+(100+offsetTop-8)/100*pp) + "px";
+      document.getElementById("logo").style.width = (121+(maxWidth-121)/100*pp) + "px";
+      document.getElementById("logo").style.top = (11+(100+offsetTop-11)/100*pp) + "px";
       document.getElementById("home-text").style.display = "block";
     }
   }
@@ -99,12 +98,12 @@ function Home(props) {
         <Navbar page="home"/>
         <br></br>
         <div className="pt-16 px-4 lg:px-16 md:px-8 lg:pb-0">
-          <div className="grid mb-12 grid-cols-1 md:grid-cols-2">
+          <div className="grid mb-32 grid-cols-1 md:grid-cols-2 md:mb-12">
             <div className="grid gap-8" id="logo-block">
             </div>
             <div className="relative m-4" id="home-text">
               <div className="bg-custom-primary relative rounded-2xl border-2 border-white z-20">
-                <div className="p-6 text-sm xl:text-base lg:h-44" data-aos="fade">
+                <div className="p-4 text-sm xl:text-base lg:h-44" data-aos="fade">
                   UNISEC-Global is an international nonprofit body, consisting of
                   local-chapters across the world. Since its establishment in
                   November 2013 in Japan, UNISEC-Global has provided a forum every

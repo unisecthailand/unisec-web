@@ -24,7 +24,7 @@ const Activity = (props) => {
       <main className="py-20">
         <Navbar />
         <div className="gap-8 xl:px-4">
-          <div className="relative my-2">
+          <div className="relative my-8">
             <h1 className="font-impact text-6xl lg:text-8xl text-center text-gray-300">
               Activity
             </h1>

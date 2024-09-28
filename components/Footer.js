@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <div className="bg-custom-primary-variant bg-opacity-10">
       <div className="container mx-auto py-2">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-8 py-6 px-10">
-          <div className="flex flex-col justify-center items-center">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-7 gap-8 py-6 px-6">
+          <div className="flex flex-col justify-center items-center lg:col-span-2">
             <div className="justify-center items-center my-auto pr-4">
               <img
                 src="/assets/logo-w.webp"
@@ -14,10 +14,10 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div>
+          <div className="flex flex-col justify-center">
             <a
               href="https://www.facebook.com/unisecthailand"
-              className="mt-4 flex flex-row justify-start items-end"
+              className="my-2 flex flex-row justify-start items-end"
             >
               <div>
                 <svg
@@ -38,7 +38,7 @@ const Footer = () => {
             </a>
             <a
               href="https://www.instagram.com/unisec_thailand/"
-              className="mt-4 flex flex-row justify-start items-end"
+              className="my-2 flex flex-row justify-start items-end"
             >
               <div>
               <svg
@@ -50,7 +50,7 @@ const Footer = () => {
             </a>
             <a
               href="https://www.youtube.com/channel/UCRv9v1-S1Zgcx3nkTewcKHg"
-              className="mt-4 flex flex-row justify-start items-end"
+              className="my-2 flex flex-row justify-start items-end"
             >
               <div>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-youtube" viewBox="0 0 16 16">
