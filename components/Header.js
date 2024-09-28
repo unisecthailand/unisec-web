@@ -6,12 +6,9 @@ const Header = ({ blog, title, description, author, cover }) => {
       <>
         <Head>
           <title>{title} | UNISEC Thailand</title>
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-w.png" media="(prefers-color-scheme: dark)" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-w.png" media="(prefers-color-scheme: dark)" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-w.png" media="(prefers-color-scheme: dark)" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="theme-color" content="#ffffff" />
 
@@ -33,12 +30,9 @@ const Header = ({ blog, title, description, author, cover }) => {
       <>
         <Head>
           <title>UNISEC Thailand</title>
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-w.png" media="(prefers-color-scheme: dark)" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-w.png" media="(prefers-color-scheme: dark)" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-w.png" media="(prefers-color-scheme: dark)" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="theme-color" content="#ffffff" />
 
