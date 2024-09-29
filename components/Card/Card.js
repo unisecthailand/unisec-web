@@ -1,4 +1,4 @@
-import { urlFor } from "../../src/sanity/sanityClient";
+import { imageUrlFor } from "../../src/sanity/sanityClient";
 
 const Card = (props) => {
   return (
@@ -8,7 +8,7 @@ const Card = (props) => {
           <div
             className="rounded-t-2xl"
             style={{
-              backgroundImage: `url('${urlFor(props.image).url()}')`,
+              backgroundImage: `url('${imageUrlFor(props.image).url()}')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center",

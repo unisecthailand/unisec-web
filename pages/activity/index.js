@@ -10,8 +10,7 @@ import { useRouter } from "next/router";
 //import sortByTimestamp from "../../utils/sortByTimestamp";
 //import { getAllArticles } from "../../utils/articles";
 
-import { getAllPosts } from "../../src/sanity/sanityClient";
-import { getAllMeetingPosts } from "../../src/sanity/sanityClient";
+import { getAllPosts, getAllMeetingPosts } from "../../src/sanity/sanityClient";
 
 const Activity = (props) => {
   const router = useRouter();
@@ -63,7 +62,7 @@ const Activity = (props) => {
               Research Projects
             </h1>
           </div>
-          
+
             <CardList
               cards={props.none}
               type="activity"
@@ -79,20 +78,12 @@ const Activity = (props) => {
 };
 
 export async function getStaticProps() {
-  // Get All Markdown files
-  // const files = await getAllArticles();
-  // const articles = files.map((file) => {
-  //   const data = fs.readFileSync(`posts/${file}`).toString();
-  //   return { ...matter(data).data, id: file.split(".")[0] };
-  // });
   const meetings = await getAllMeetingPosts();
-  
   const articles = await getAllPosts();
   const upcommings = [];
   const activities = [];
   const none = [];
 
-  console.log(articles)
   articles.forEach((article) => {
     switch (article.type) {
       case "UPCOMMING":

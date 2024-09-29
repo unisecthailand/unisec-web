@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { imageUrlFor } from "../src/sanity/sanityClient";
 
 const Header = ({ blog, title, description, author, cover }) => {
   if (blog) {
@@ -21,7 +22,7 @@ const Header = ({ blog, title, description, author, cover }) => {
           <meta property="og:title" content={`${title} | UNISEC Thailand`} />
           <meta property="og:site_name" content="UNISEC Thailand" />
           <meta property="og:description" content={description} />
-          <meta property="og:image" content={cover ?? "/assets/space.jpeg"} />
+          <meta property="og:image" content={cover ? imageUrlFor(cover).url() : "/assets/space.jpeg"} />
         </Head>
       </>
     );

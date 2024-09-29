@@ -1,11 +1,11 @@
-import { urlFor } from "../../src/sanity/sanityClient";
+import { imageUrlFor } from "../../src/sanity/sanityClient";
 
 const MeetingCard = (props) => {
   return (
     <div className="relative cursor-pointer transform hover:translate-x-2 hover:translate-y-2 transition duration-500">
       <div className="bg-custom-primary relative rounded-2xl border-2 border-gray-600 z-10">
         <div className="relative h-full">
-          <img className="rounded-t-2xl" src={urlFor(props.image).url()}>
+          <img className="rounded-t-2xl" src={imageUrlFor(props.image).url()}>
           </img>
           <div className="p-5">
             <h3 className="font-impact text-2xl tracking-wide">
