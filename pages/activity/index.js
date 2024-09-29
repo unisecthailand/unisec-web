@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CardList from "../../components/CardList";
 import MeetingCardList from "../../components/MeetingCardList";
+import sortByTimestamp from "../../utils/sortByTimestamp";
 
 import { useRouter } from "next/router";
 import { getAllPosts, getAllMeetingPosts } from "../../src/sanity/sanityClient";
@@ -72,7 +73,8 @@ const Activity = (props) => {
 };
 
 export async function getServerSideProps() {
-  const meetings = await getAllMeetingPosts();
+  const raw_meetings = await getAllMeetingPosts();
+  const meetings = sortByTimestamp(raw_meetings, true);
   const articles = await getAllPosts();
   const upcommings = [];
   const activities = [];

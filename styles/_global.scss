@@ -244,6 +244,9 @@ article p {
 article ul {
     @apply list-disc;
     @apply list-inside;
+    @apply mb-4;
+    @apply pl-2;
+    @apply text-3xl;
 }
 
 article img {
