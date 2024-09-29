@@ -1,6 +1,3 @@
-import fs from "fs";
-import matter from "gray-matter";
-
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
@@ -8,12 +5,13 @@ import Footer from "../../components/Footer";
 import CardList from "../../components/CardList";
 import MeetingCardList from "../../components/MeetingCardList";
 
-import { GetStaticProps, GetStaticPropsContext } from "next";
-
 import { useRouter } from "next/router";
 
-import sortByTimestamp from "../../utils/sortByTimestamp";
-import { getAllArticles } from "../../utils/articles";
+//import sortByTimestamp from "../../utils/sortByTimestamp";
+//import { getAllArticles } from "../../utils/articles";
+
+import { getAllPosts } from "../../src/sanity/sanityClient";
+import { getAllMeetingPosts } from "../../src/sanity/sanityClient";
 
 const Activity = (props) => {
   const router = useRouter();
@@ -38,6 +36,7 @@ const Activity = (props) => {
             <h1 className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}>
               Online Meeting
             </h1>
+            
             <MeetingCardList
               cards={props.meetings}
               type="meetings"
@@ -64,6 +63,7 @@ const Activity = (props) => {
               Research Projects
             </h1>
           </div>
+          
             <CardList
               cards={props.none}
               type="activity"
@@ -80,17 +80,19 @@ const Activity = (props) => {
 
 export async function getStaticProps() {
   // Get All Markdown files
-  const files = await getAllArticles();
-  const articles = files.map((file) => {
-    const data = fs.readFileSync(`posts/${file}`).toString();
-    return { ...matter(data).data, id: file.split(".")[0] };
-  });
-
+  // const files = await getAllArticles();
+  // const articles = files.map((file) => {
+  //   const data = fs.readFileSync(`posts/${file}`).toString();
+  //   return { ...matter(data).data, id: file.split(".")[0] };
+  // });
+  const meetings = await getAllMeetingPosts();
+  
+  const articles = await getAllPosts();
   const upcommings = [];
   const activities = [];
-  const meetings = [];
   const none = [];
 
+  console.log(articles)
   articles.forEach((article) => {
     switch (article.type) {
       case "UPCOMMING":
@@ -98,9 +100,6 @@ export async function getStaticProps() {
         break;
       case "ACTIVITY":
         activities.push(article);
-        break;
-      case "MEETING":
-        meetings.push(article);
         break;
       default:
         break;

@@ -1,12 +1,11 @@
+import { urlFor } from "../../src/sanity/sanityClient";
+
 const MeetingCard = (props) => {
   return (
     <div className="relative cursor-pointer transform hover:translate-x-2 hover:translate-y-2 transition duration-500">
       <div className="bg-custom-primary relative rounded-2xl border-2 border-gray-600 z-10">
         <div className="relative h-full">
-          <img className="rounded-t-2xl" src={
-                props.image ||
-                "https://firebasestorage.googleapis.com/v0/b/unisec-web.appspot.com/o/rocket.webp?alt=media&token=b814b524-1359-4c81-ae73-272a8c7147f2"
-              }>
+          <img className="rounded-t-2xl" src={urlFor(props.image).url()}>
           </img>
           <div className="p-5">
             <h3 className="font-impact text-2xl tracking-wide">
@@ -20,23 +19,6 @@ const MeetingCard = (props) => {
                 : ""}
             </div>
           </div>
-          {/* <div className="absolute bottom-0 w-full px-8 py-6 flex flex-row justify-between">
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="25"
-                fill="none"
-                viewBox="0 0 60 30"
-              >
-                <path
-                  stroke="#fff"
-                  strokeMiterlimit="10"
-                  strokeWidth="2"
-                  d="M58.53 14.75H0M44.69.9l13.84 13.85-13.84 13.84"
-                ></path>
-              </svg>
-            </div>
-          </div> */}
         </div>
       </div>
       <div className="absolute w-full top-3 left-3 rounded-2xl bg-custom-primary border-2 border-gray-600 z-0 h-full"></div>
