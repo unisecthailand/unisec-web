@@ -57,18 +57,6 @@ export const meetingPostType = defineType({
       name: 'body',
       type: 'blockContent',
     }),
-    defineField({
-      name: 'schedule',
-      type: 'file',
-    }),
-    defineField({
-      name: 'report',
-      type: 'file',
-    }),
-    defineField({
-      name: 'powerpoint',
-      type: 'file',
-    }),
   ],
   preview: {
     select: {

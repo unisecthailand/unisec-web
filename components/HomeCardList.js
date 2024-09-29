@@ -6,7 +6,7 @@ const HomeCardList = (props) => {
   if (card != null) {
     return (
       <div className="animaiton mb-8 lg:my-2 grid grid-cols-1 gap-8 md:gap-8 lg:gap-12 md:gap-y-0 p-8">
-        <Link href={`/${props.type}/` + card.id}>
+        <Link href={`/${props.type}/` + card.slug.current}>
           <div data-aos="fade-up">
             <HomeCard
               title={card.title}
