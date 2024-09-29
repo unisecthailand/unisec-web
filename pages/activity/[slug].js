@@ -59,7 +59,7 @@ const textComponents = {
         href={value.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-500 underline font-sans"
+        className="underline"
       >
         {children}
       </a>
@@ -144,7 +144,7 @@ const Blog = (props) => {
         <main className="pb-20 pt-24">
           <Navbar />
           <Parallex
-            image={props.cover ?? "/assets/space.webp"}
+            image={imageUrlFor(props.cover).url() ?? "/assets/space.webp"}
             darken={true}
           >
             <div className="w-full mx-auto">
@@ -181,18 +181,14 @@ const Blog = (props) => {
                 {props.title}
               </h1>
               <article>
-                {/* <ReactMarkdown>{props.body}</ReactMarkdown> */}
+                <PortableText value={props.body} components={textComponents} />
               </article>
             </div>
           </div>
         </main>
-
-        {/* <footer className="absolute top-full w-full">
-          <Footer
-            blogs={sortByTimestamp(props.blogs)}
-            projects={sortByTimestamp(props.projects)}
-          />
-        </footer> */}
+        <footer className="absolute top-full w-full">
+          <Footer />
+        </footer>
       </div>
     );
 }    
