@@ -1,21 +1,13 @@
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-
 import Activity from "../components/Home/Activity";
 import Partnership from "../components/Partnership";
-
 import Divider from "../components/Divider";
 import Footer from "../components/Footer";
 
-import fs from "fs";
-import matter from "gray-matter";
-
 import sortByTimestamp from "../utils/sortByTimestamp";
-import { getAllArticles } from "../utils/articles";
-
-import Link from "next/link";
+import { getAllPosts, getAllMeetingPosts } from "../src/sanity/sanityClient";
 import { useRouter } from "next/router"
-
 import { useState, useEffect } from "react";
 
 function Home(props) {
@@ -121,23 +113,15 @@ function Home(props) {
       </main>
 
       <footer className="absolute top-full w-full">
-        <Footer
-          blogs={sortByTimestamp(props.blogs)}
-          projects={sortByTimestamp(props.projects)}
-        />
+        <Footer />
       </footer>
     </div>
   );
 }
 
-export async function getStaticProps() {
-  // Get All Markdown files
-  const files = await getAllArticles();
-  const articles = files.map((file) => {
-    const data = fs.readFileSync(`posts/${file}`).toString();
-    return { ...matter(data).data, id: file.split(".")[0] };
-  });
-
+export async function getServerSideProps() {
+  const meetings = await getAllMeetingPosts();
+  const articles = await getAllPosts();
   const blogs = [];
   const projects = [];
   const camps = [];
@@ -145,7 +129,6 @@ export async function getStaticProps() {
   const conferences = [];
   const upcommings = [];
   const activities = [];
-  const meetings = [];
   const none = [];
 
   articles.forEach((article) => {

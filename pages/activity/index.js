@@ -1,19 +1,13 @@
-import fs from "fs";
-import matter from "gray-matter";
-
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CardList from "../../components/CardList";
 import MeetingCardList from "../../components/MeetingCardList";
-
-import { GetStaticProps, GetStaticPropsContext } from "next";
+import sortByTimestamp from "../../utils/sortByTimestamp";
 
 import { useRouter } from "next/router";
-
-import sortByTimestamp from "../../utils/sortByTimestamp";
-import { getAllArticles } from "../../utils/articles";
+import { getAllPosts, getAllMeetingPosts } from "../../src/sanity/sanityClient";
 
 const Activity = (props) => {
   const router = useRouter();
@@ -38,6 +32,7 @@ const Activity = (props) => {
             <h1 className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}>
               Online Meeting
             </h1>
+            
             <MeetingCardList
               cards={props.meetings}
               type="meetings"
@@ -70,7 +65,6 @@ const Activity = (props) => {
             />
           </div>
       </main>
-
       <footer className="absolute top-full w-full">
         <Footer/>
       </footer>
@@ -78,17 +72,12 @@ const Activity = (props) => {
   );
 };
 
-export async function getStaticProps() {
-  // Get All Markdown files
-  const files = await getAllArticles();
-  const articles = files.map((file) => {
-    const data = fs.readFileSync(`posts/${file}`).toString();
-    return { ...matter(data).data, id: file.split(".")[0] };
-  });
-
+export async function getServerSideProps() {
+  const raw_meetings = await getAllMeetingPosts();
+  const meetings = sortByTimestamp(raw_meetings, true);
+  const articles = await getAllPosts();
   const upcommings = [];
   const activities = [];
-  const meetings = [];
   const none = [];
 
   articles.forEach((article) => {
@@ -98,9 +87,6 @@ export async function getStaticProps() {
         break;
       case "ACTIVITY":
         activities.push(article);
-        break;
-      case "MEETING":
-        meetings.push(article);
         break;
       default:
         break;

@@ -1,3 +1,5 @@
+import { imageUrlFor } from "../../src/sanity/sanityClient";
+
 const HomeCard = (props) => {
   return (
     <div className="relative cursor-pointer transform hover:translate-x-1 hover:translate-y-1 transition duration-500">
@@ -6,10 +8,7 @@ const HomeCard = (props) => {
           <div
             className="rounded-b-none rounded-t-2xl md:rounded-r-none md:rounded-l-2xl lg:rounded-r-none lg:rounded-l-2xl"
             style={{
-              backgroundImage: `url('${
-                props.image ||
-                "https://firebasestorage.googleapis.com/v0/b/unisec-web.appspot.com/o/rocket.webp?alt=media&token=b814b524-1359-4c81-ae73-272a8c7147f2"
-              }')`,
+              backgroundImage: `url('${imageUrlFor(props.image).url()}')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center",
