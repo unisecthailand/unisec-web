@@ -21,6 +21,14 @@ export const postType = defineType({
     defineField({
       name: 'type',
       type: 'string',
+      initialValue: 'ACTIVITY',
+      options: {
+        list: [
+          {title: 'ACTIVITY', value: 'ACTIVITY'},
+          {title: 'MEETING', value: 'MEETING'},
+          {title: 'UPCOMMING', value: 'UPCOMMING'},
+        ]
+      }
     }),
     defineField({
       name: 'date',
@@ -33,6 +41,7 @@ export const postType = defineType({
     defineField({
       name: 'author',
       type: 'string',
+      initialValue: 'UNISEC Thailand'
     }),
     defineField({
       name: 'description',

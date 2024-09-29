@@ -21,7 +21,14 @@ export const meetingPostType = defineType({
     defineField({
       name: 'type',
       type: 'string',
-      initialValue: 'MEETING'
+      initialValue: 'MEETING',
+      options: {
+        list: [
+          {title: 'ACTIVITY', value: 'ACTIVITY'},
+          {title: 'MEETING', value: 'MEETING'},
+          {title: 'UPCOMMING', value: 'UPCOMMING'},
+        ]
+      }
     }),
     defineField({
       name: 'date',
