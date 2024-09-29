@@ -194,7 +194,7 @@ const Blog = (props) => {
 }    
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const slug = ctx.params.slug;
   const articles = await getPostBySlug(slug);
   return {
@@ -202,18 +202,6 @@ export async function getStaticProps(ctx) {
       ...articles,
     }
   }
-}
-
-export async function getStaticPaths() {
-  const activities = await getAllSlugs();
-  const paths = activities.map((activity) => ({
-    params: { slug: activity.slug.current },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
 }
 
 export default Blog;

@@ -127,7 +127,7 @@ function Home(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const meetings = await getAllMeetingPosts();
   const articles = await getAllPosts();
   const blogs = [];

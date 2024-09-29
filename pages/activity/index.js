@@ -77,7 +77,7 @@ const Activity = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const meetings = await getAllMeetingPosts();
   const articles = await getAllPosts();
   const upcommings = [];
