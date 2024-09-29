@@ -15,10 +15,10 @@ import {structure} from './src/sanity/structure'
 
 export default defineConfig({
   basePath: '/studio',
-  projectId,
-  dataset,
+  projectId: projectId,
+  dataset: dataset,
   // Add and edit the content schema in the './sanity/schemaTypes' folder
-  schema,
+  schema: schema,
   plugins: [
     structureTool({structure}),
     // Vision is for querying with GROQ from inside the Studio
