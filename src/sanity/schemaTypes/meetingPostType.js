@@ -1,9 +1,9 @@
 import {DocumentTextIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
-export const postType = defineType({
-  name: 'post',
-  title: 'Post',
+export const meetingPostType = defineType({
+  name: 'meeting-post',
+  title: 'Meeting Post',
   type: 'document',
   icon: DocumentTextIcon,
   fields: [
@@ -21,18 +21,16 @@ export const postType = defineType({
     defineField({
       name: 'type',
       type: 'string',
+      initialValue: 'MEETING'
     }),
     defineField({
       name: 'date',
       type: 'date',
     }),
     defineField({
-      name: 'date_to',
-      type: 'date',
-    }),
-    defineField({
       name: 'author',
       type: 'string',
+      initialValue: 'UNISEC Thailand'
     }),
     defineField({
       name: 'description',
@@ -43,8 +41,33 @@ export const postType = defineType({
       type: 'image',
     }),
     defineField({
+      name: 'cover4b3',
+      type: 'image',
+    }),
+    defineField({
+      name: 'capture',
+      type: 'image',
+    }),
+    defineField({
+      name: 'youtube',
+      type: 'string',
+      initialValue: 'none'
+    }),
+    defineField({
       name: 'body',
       type: 'blockContent',
+    }),
+    defineField({
+      name: 'schedule',
+      type: 'file',
+    }),
+    defineField({
+      name: 'report',
+      type: 'file',
+    }),
+    defineField({
+      name: 'powerpoint',
+      type: 'file',
     }),
   ],
   preview: {
