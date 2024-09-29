@@ -1,20 +1,12 @@
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-
 import Activity from "../components/Home/Activity";
 import Partnership from "../components/Partnership";
-
 import Divider from "../components/Divider";
 import Footer from "../components/Footer";
 
-// import fs from "fs";
-// import matter from "gray-matter";
-
 import sortByTimestamp from "../utils/sortByTimestamp";
-//import { getAllArticles } from "../utils/articles";
-
 import { getAllPosts, getAllMeetingPosts } from "../src/sanity/sanityClient";
-import Link from "next/link";
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
 

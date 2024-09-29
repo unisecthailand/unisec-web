@@ -1,22 +1,10 @@
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import MicroCard from "../../components/Card/MicroCard";
 import Parallex from "../../components/Parallex";
-
-// import Link from "next/link";
-
-// import fs from "fs";
-// import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from 'remark-gfm';
-
-import sortByTimestamp from "../../utils/sortByTimestamp";
-//import { getAllArticles, getArticlesById } from "../../utils/articles";
-
 import { PortableText } from "next-sanity";
 import { imageUrlFor, fileUrlFor } from "../../src/sanity/sanityClient";
-import { getAllSlugs, getPostBySlug } from "../../src/sanity/sanityClient";
+import { getPostBySlug } from "../../src/sanity/sanityClient";
 
 const textComponents = {
   types: {

@@ -6,10 +6,6 @@ import CardList from "../../components/CardList";
 import MeetingCardList from "../../components/MeetingCardList";
 
 import { useRouter } from "next/router";
-
-//import sortByTimestamp from "../../utils/sortByTimestamp";
-//import { getAllArticles } from "../../utils/articles";
-
 import { getAllPosts, getAllMeetingPosts } from "../../src/sanity/sanityClient";
 
 const Activity = (props) => {
@@ -62,14 +58,12 @@ const Activity = (props) => {
               Research Projects
             </h1>
           </div>
-
             <CardList
               cards={props.none}
               type="activity"
             />
           </div>
       </main>
-
       <footer className="absolute top-full w-full">
         <Footer/>
       </footer>
