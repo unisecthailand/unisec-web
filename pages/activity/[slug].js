@@ -5,6 +5,7 @@ import Parallex from "../../components/Parallex";
 import { PortableText } from "next-sanity";
 import { imageUrlFor, fileUrlFor } from "../../src/sanity/sanityClient";
 import { getPostBySlug } from "../../src/sanity/sanityClient";
+import { getAllSlugs } from "../../src/sanity/sanityClient";
 
 const textComponents = {
   types: {
@@ -182,14 +183,30 @@ const Blog = (props) => {
 }    
 };
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
   const slug = ctx.params.slug;
   const articles = await getPostBySlug(slug);
   return {
     props: {
       ...articles,
-    }
+    },
+    revalidate: 300,
   }
+}
+
+export async function getStaticPaths() {
+  const slugs = await getAllSlugs();
+  console.log(slugs)
+
+  // Map slugs to paths
+  const paths = slugs.map(slug => ({
+    params: { slug: slug.slug.current },
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking',
+  };
 }
 
 export default Blog;
