@@ -119,7 +119,7 @@ function Home(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const meetings = await getAllMeetingPosts();
   const articles = await getAllPosts();
   const blogs = [];
@@ -175,6 +175,7 @@ export async function getServerSideProps() {
       meetings,
       none
     },
+    revalidate: 300,
   };
 }
 

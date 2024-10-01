@@ -72,7 +72,7 @@ const Activity = (props) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const raw_meetings = await getAllMeetingPosts();
   const meetings = sortByTimestamp(raw_meetings, true);
   const articles = await getAllPosts();
@@ -101,6 +101,7 @@ export async function getServerSideProps() {
       meetings,
       none
     },
+    revalidate: 300,
   };
 }
 
