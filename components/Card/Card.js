@@ -1,6 +1,8 @@
 import { imageUrlFor } from "../../src/sanity/sanityClient";
 
 const Card = (props) => {
+  const img = props.image ? imageUrlFor(props.image).url() : "/assets/blank.webp"
+
   return (
     <div className="relative h-full cursor-pointer transform hover:translate-x-2 hover:translate-y-2 transition duration-500">
       <div className="bg-custom-primary relative h-full rounded-2xl border-2 border-gray-600 z-10">
@@ -8,7 +10,7 @@ const Card = (props) => {
           <div
             className="rounded-t-2xl"
             style={{
-              backgroundImage: `url('${imageUrlFor(props.image).url()}')`,
+              backgroundImage: `url('${img}')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center",

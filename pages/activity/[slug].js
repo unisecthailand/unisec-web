@@ -88,7 +88,7 @@ const Blog = (props) => {
         <main className="pb-20 pt-24">
           <Navbar />
           <div className="flex justify-center">
-            <img src={imageUrlFor(props.cover).url()} className="meeting-image"></img>
+            <img src={props.cover ? imageUrlFor(props.cover).url() : "/assets/blank.webp"} className="meeting-image"></img>
           </div>
           <div className="">
             <div className="container mx-auto p-8 border-b-2 border-white">
@@ -133,7 +133,7 @@ const Blog = (props) => {
         <main className="pb-20 pt-24">
           <Navbar />
           <Parallex
-            image={imageUrlFor(props.cover).url() ?? "/assets/space.webp"}
+            image={props.cover ? imageUrlFor(props.cover).url() : "/assets/space.webp"}
             darken={true}
           >
             <div className="w-full mx-auto">
@@ -196,7 +196,6 @@ export async function getStaticProps(ctx) {
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
-  console.log(slugs)
 
   // Map slugs to paths
   const paths = slugs.map(slug => ({
