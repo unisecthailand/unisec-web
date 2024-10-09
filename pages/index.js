@@ -6,19 +6,22 @@ import Divider from "../components/Divider";
 import Footer from "../components/Footer";
 
 import sortByTimestamp from "../utils/sortByTimestamp";
-import { getAllPosts, getAllMeetingPosts } from "../src/sanity/sanityClient";
+import { getBanners } from "../src/sanity/sanityClient";
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
 
 function Home(props) {
-  const blogs = props.meetings.concat(props.upcommings)
-  const latestBlogs = sortByTimestamp(blogs).slice(0,4);
+  let banners = sortByTimestamp(props.banners);
   const [index, setIndex] = useState(0);
-  //console.log(latestBlogs)
+  if(banners.length == 0){
+    banners.push({
+      title: "No Banner",
+    })
+  }
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(seconds => (seconds === latestBlogs.length-1 ? 0 : seconds + 1));
-    }, 10000);
+      setIndex(seconds => (seconds === banners.length-1 ? 0 : seconds + 1));
+    }, 5000);
 
     return () => clearInterval(interval)
   }, [])
@@ -107,7 +110,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-        <Activity activity={latestBlogs[index]} />
+        <Activity activity={banners[index]} />
         <Divider />
         <Partnership />
       </main>
@@ -120,60 +123,11 @@ function Home(props) {
 }
 
 export async function getStaticProps() {
-  const meetings = await getAllMeetingPosts();
-  const articles = await getAllPosts();
-  const blogs = [];
-  const projects = [];
-  const camps = [];
-  const competitions = [];
-  const conferences = [];
-  const upcommings = [];
-  const activities = [];
-  const none = [];
-
-  articles.forEach((article) => {
-    switch (article.type) {
-      case "UPCOMMING":
-        upcommings.push(article);
-        break;
-      case "BLOG":
-        blogs.push(article);
-        break;
-      case "PROJECT":
-        projects.push(article);
-        break;
-      case "CAMP":
-        camps.push(article);
-        break;
-      case "COMPETITION":
-        competitions.push(article);
-        break;
-      case "CONFERENCE":
-        conferences.push(article);
-        break;
-      case "ACTIVITY":
-        activities.push(article);
-        break;
-      case "MEETING":
-        meetings.push(article);
-        break;
-      default:
-        break;
-    }
-    return;
-  });
+  const banners = await getBanners();
 
   return {
     props: {
-      upcommings,
-      blogs,
-      projects,
-      camps,
-      competitions,
-      conferences,
-      activities,
-      meetings,
-      none
+      banners
     },
     revalidate: 300,
   };

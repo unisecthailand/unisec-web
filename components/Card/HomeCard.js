@@ -21,7 +21,7 @@ const HomeCard = (props) => {
             <h3 className="font-impact text-3xl">
               {props.title || "Untitled"}
             </h3>
-            <div className="text-sm">by {props.author}</div>
+            <div className="text-sm">{props.author}</div>
             <div className="mt-4 font-helvethaica-med-cond">
               {props.description
                 ? props.description.slice(0, 150) +
