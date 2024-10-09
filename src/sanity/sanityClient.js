@@ -80,3 +80,35 @@ export async function getAllMeetingPosts() {
     const meetingPosts = await client.fetch(query);
     return meetingPosts
 }
+
+export async function getBanners() {
+    const query = `*[_type == "banner"]{
+        slug,
+        title,
+        date,
+        author,
+        description,
+        cover,
+        extlink,
+        "post": RefPost->{
+            slug,
+            title,
+            date,
+            author,
+            description,
+            cover
+        }
+        }`
+    const banners = await client.fetch(query);
+    banners.forEach((banner) => {
+      if(banner.post != null){
+        banner.title=banner.post.title;
+        banner.date=banner.post.date;
+        banner.author=banner.post.author;
+        banner.description=banner.post.description;
+        banner.cover=banner.post.cover;
+        banner.slug=banner.post.slug.current;
+      }
+    })
+    return banners
+}
