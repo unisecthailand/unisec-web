@@ -13,7 +13,7 @@ const HomeCardList = (props) => {
             <HomeCard
               title={card.title}
               image={card.cover}
-              author={card.author ?? "UNISEC Thailand"}
+              author={card.author ? ("by " + card.author) : ""}
               description={card.description}
             />
           </div>
