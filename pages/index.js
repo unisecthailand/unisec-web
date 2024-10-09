@@ -11,8 +11,13 @@ import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
 
 function Home(props) {
-  const banners = sortByTimestamp(props.banners);
+  let banners = sortByTimestamp(props.banners);
   const [index, setIndex] = useState(0);
+  if(banners.length == 0){
+    banners.push({
+      title: "No Banner",
+    })
+  }
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex(seconds => (seconds === banners.length-1 ? 0 : seconds + 1));
