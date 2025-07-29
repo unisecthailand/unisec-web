@@ -7,7 +7,7 @@ import Image from "next/image";
 import useScrollPosition from "@react-hook/window-scroll";
 
 const Menus = ({ text, link, isOpen, subMenus }) => (
-  <div className="relative dropdown">
+  <div className="relative group">
     <ActiveLink href={link} activeClassName="btn-active">
       <div
         className={`relative cursor-pointer h-full text-center flex flex-col justify-center items-center ${
@@ -18,7 +18,7 @@ const Menus = ({ text, link, isOpen, subMenus }) => (
       </div>
     </ActiveLink>
     <div
-      className={`dropdown-menu absolute top-full right-0 w-full bg-custom-primary z-50`}
+      className={`absolute top-full right-0 w-full bg-custom-primary z-50 hidden group-hover:block`}
     >
       <ul>
         {subMenus

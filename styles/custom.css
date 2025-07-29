@@ -1,0 +1,155 @@
+html,
+body {
+  @apply bg-custom-primary;
+  @apply text-white;
+}
+
+.bg-gradient {
+  background: rgb(0, 23, 54);
+  background: linear-gradient(
+    144deg,
+    rgba(0, 23, 54, 1) 0%,
+    rgb(2, 40, 75) 100%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-impact {
+  font-family: "Impact";
+  letter-spacing: 1px;
+}
+
+.font-jetbrains {
+  font-family: "JetBrainsMono";
+}
+
+.font-helvethaica-blk-cond {
+  @apply text-2xl;
+  font-family: "DBHelvethaicaXBlkCond";
+}
+
+.font-helvethaica-med-cond {
+  @apply text-2xl;
+  font-family: "DBHelvethaicaXMedCond";
+}
+
+.font-THSarabunTH {
+  @apply text-2xl;
+  font-family: "THSarabunNew";
+}
+
+.bg-grid {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1) 0.1em,
+      transparent 0.1em
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0.1em, transparent 0.1em);
+  background-size: 5em 5em;
+}
+
+.btn-active {
+  background-color: #00204d; /* lighten(#001736, 10%) */
+}
+
+#logo {
+  display: block;
+  position: absolute;
+  left: 48px;
+  top: 100px;
+  width: 480px;
+}
+
+.logox {
+  left: 48px;
+  top: 100px;
+  width: 121px;
+}
+
+@media screen and (max-width: 1024px) {
+  .grid-stair {
+    > div {
+      @apply w-full;
+    }
+    > div:nth-child(2n + 1) {
+      @apply mb-8;
+    }
+    > div:nth-child(2n) {
+      @apply mt-12;
+    }
+  }
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -7rem;
+  visibility: hidden;
+}
+
+article h1 {
+  @apply text-4xl;
+  @apply font-bold;
+}
+
+article h2 {
+  @apply text-3xl;
+  @apply font-bold;
+}
+
+article h3 {
+  @apply text-2xl;
+  @apply font-bold;
+}
+
+article h4 {
+  @apply text-xl;
+  @apply font-bold;
+}
+
+article h5 {
+  @apply text-lg;
+  @apply font-bold;
+}
+
+article * {
+  @apply font-THSarabunTH;
+}
+
+article p {
+  @apply my-4;
+  line-height: 1.5; /* Moved from .markdown p */
+}
+
+article ul {
+  @apply list-disc;
+  @apply list-inside;
+  @apply mb-4;
+  @apply pl-2;
+  @apply text-3xl;
+}
+
+article img {
+  @apply mx-auto;
+  @apply max-h-full;
+}
+
+@media (min-width: 1024px) {
+  article * {
+    @apply font-THSarabunTH;
+    @apply text-3xl;
+  }
+}
+
+.markdown {
+  table {
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    padding: 6px 13px;
+    border: 1px solid white;
+  }
+}

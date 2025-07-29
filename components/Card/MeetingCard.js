@@ -14,8 +14,10 @@ const MeetingCard = (props) => {
             className="rounded-t-2xl"
             src={img}
             alt={props.title || "Untitled"}
+            layout="responsive"
             width={400}
             height={300}
+            objectFit="cover"
           />
           <div className="p-5">
             <h3 className="font-impact text-2xl tracking-wide">

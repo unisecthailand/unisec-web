@@ -110,7 +110,7 @@ const Blog = (props) => {
               width={960}
               height={540}
               alt="cover"
-              className="meeting-image"
+              className="max-h-140"
             />
           </div>
           <div className="">
@@ -139,7 +139,7 @@ const Blog = (props) => {
                 width={960}
                 height={540}
                 alt="capture"
-                className="meeting-image"
+                className="max-h-140"
               />
             </div>
           )}
