@@ -81,8 +81,8 @@ const Navbar = ({ page }) => {
                 {page == "home" ? (
                   <Image
                     src="/assets/logo-w.webp"
-                    width={121}
-                    height={40}
+                    width={484}
+                    height={160}
                     className="cursor-pointer"
                     id="logo"
                     //className="w-auto h-10 cursor-pointer"
@@ -91,8 +91,8 @@ const Navbar = ({ page }) => {
                 ) : (
                   <Image
                     src="/assets/logo-w.webp"
-                    width={121}
-                    height={40}
+                    width={484}
+                    height={160}
                     className="w-auto cursor-pointer"
                     alt="UNISEC-Thailand"
                   />
