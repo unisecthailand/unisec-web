@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Parallex from "../../components/Parallex";
 import { PortableText } from "next-sanity";
+import Image from "next/image";
 import { imageUrlFor, fileUrlFor } from "../../src/sanity/sanityClient";
 import { getPostBySlug } from "../../src/sanity/sanityClient";
 import { getAllSlugs } from "../../src/sanity/sanityClient";
@@ -12,33 +13,51 @@ const textComponents = {
     // Render images
     image: ({ value }) => (
       <div className="my-4">
-        <img
+        <Image
           src={imageUrlFor(value).width(800).url()}
-          alt={value.alt || 'Image'}
+          alt={value.alt || "Image"}
+          width={800}
+          height={600}
           className="rounded-md shadow-md" // Add your desired styles
         />
         {value.caption && (
-          <p className="text-sm text-gray-500 font-serif italic">{value.caption}</p>
+          <p className="text-sm text-gray-500 font-serif italic">
+            {value.caption}
+          </p>
         )}
       </div>
     ),
     // Render file downloads
     file: ({ value }) => (
       <div className="my-4">
-        <a href={fileUrlFor(value)} download className="text-blue-500 underline font-mono">
+        <a
+          href={fileUrlFor(value)}
+          download
+          className="text-blue-500 underline font-mono"
+        >
           Download File
         </a>
         {value.caption && (
-          <p className="text-sm text-gray-500 font-serif italic">{value.caption}</p>
+          <p className="text-sm text-gray-500 font-serif italic">
+            {value.caption}
+          </p>
         )}
       </div>
     ),
   },
   block: {
-    h1: ({ children }) => <h1 className="text-6xl font-bold mb-2">{children}</h1>,
-    h2: ({ children }) => <h2 className="text-5xl font-bold mb-2">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-4xl font-bold mb-2">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-3xl font-bold mb-2">{children}</h4>,
+    h1: ({ children }) => (
+      <h1 className="text-6xl font-bold mb-2">{children}</h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-5xl font-bold mb-2">{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-4xl font-bold mb-2">{children}</h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-3xl font-bold mb-2">{children}</h4>
+    ),
     normal: ({ children }) => <p className="text-3xl mt-0">{children}</p>,
   },
   marks: {
@@ -55,18 +74,12 @@ const textComponents = {
     ),
     // Render file links
     fileLink: ({ value, children }) => (
-      <a href={fileUrlFor(value)}>
-        {children}
-      </a>
+      <a href={fileUrlFor(value)}>{children}</a>
     ),
     // Strong text
-    strong: ({ children }) => (
-      <strong className="font-bold">{children}</strong>
-    ),
+    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
     // Emphasized text
-    em: ({ children }) => (
-      <em className="italic">{children}</em>
-    ),
+    em: ({ children }) => <em className="italic">{children}</em>,
     // Code text
     code: ({ children }) => (
       <code className="bg-gray-200 p-1 rounded">{children}</code>
@@ -75,7 +88,7 @@ const textComponents = {
 };
 
 const Blog = (props) => {
-  if(props.type == "MEETING"){
+  if (props.type == "MEETING") {
     return (
       <div className="relative min-h-screen bg-gradient">
         <Header
@@ -88,7 +101,17 @@ const Blog = (props) => {
         <main className="pb-20 pt-24">
           <Navbar />
           <div className="flex justify-center">
-            <img src={props.cover ? imageUrlFor(props.cover).url() : "/assets/blank.webp"} className="meeting-image"></img>
+            <Image
+              src={
+                props.cover
+                  ? imageUrlFor(props.cover).url()
+                  : "/assets/blank.webp"
+              }
+              width={960}
+              height={540}
+              alt="cover"
+              className="meeting-image"
+            />
           </div>
           <div className="">
             <div className="container mx-auto p-8 border-b-2 border-white">
@@ -100,26 +123,33 @@ const Blog = (props) => {
               </article>
             </div>
           </div>
-          {props.youtube != 'none' &&
+          {props.youtube != "none" && (
             <div className="container mx-auto p-6 flex justify-center border-b-2 border-white">
-              <iframe width="960" height="540"
-                src={"https://www.youtube.com/embed/" + props.youtube}>
-              </iframe>
+              <iframe
+                width="960"
+                height="540"
+                src={"https://www.youtube.com/embed/" + props.youtube}
+              ></iframe>
             </div>
-          }
-          {props.capture &&
+          )}
+          {props.capture && (
             <div className="flex justify-center p-6">
-              <img src={imageUrlFor(props.capture).url()} className="meeting-image"></img>
+              <Image
+                src={imageUrlFor(props.capture).url()}
+                width={960}
+                height={540}
+                alt="capture"
+                className="meeting-image"
+              />
             </div>
-          }
+          )}
         </main>
         <footer className="absolute top-full w-full">
           <Footer />
         </footer>
       </div>
     );
-  }
-  else{
+  } else {
     return (
       <div className="relative min-h-screen bg-gradient">
         <Header
@@ -133,7 +163,11 @@ const Blog = (props) => {
         <main className="pb-20 pt-24">
           <Navbar />
           <Parallex
-            image={props.cover ? imageUrlFor(props.cover).url() : "/assets/space.webp"}
+            image={
+              props.cover
+                ? imageUrlFor(props.cover).url()
+                : "/assets/space.webp"
+            }
             darken={true}
           >
             <div className="w-full mx-auto">
@@ -144,23 +178,22 @@ const Blog = (props) => {
                 {props.title}
               </h1>
               <div className="text-gray-100 text-center mt-16 text-shadow">
-                {
-                props.date_to == undefined ? 
-                new Date(props.date).toLocaleDateString("en-EN", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                }) :
-                new Date(props.date).toLocaleDateString("en-EN", {
-                  month: "long",
-                  day: "numeric",
-                }) + " - " +
-                new Date(props.date_to).toLocaleDateString("en-EN", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })
-                }
+                {props.date_to == undefined
+                  ? new Date(props.date).toLocaleDateString("en-EN", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })
+                  : new Date(props.date).toLocaleDateString("en-EN", {
+                      month: "long",
+                      day: "numeric",
+                    }) +
+                    " - " +
+                    new Date(props.date_to).toLocaleDateString("en-EN", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
               </div>
             </div>
           </Parallex>
@@ -180,7 +213,7 @@ const Blog = (props) => {
         </footer>
       </div>
     );
-}    
+  }
 };
 
 export async function getStaticProps(ctx) {
@@ -191,20 +224,20 @@ export async function getStaticProps(ctx) {
       ...articles,
     },
     revalidate: 300,
-  }
+  };
 }
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
 
   // Map slugs to paths
-  const paths = slugs.map(slug => ({
+  const paths = slugs.map((slug) => ({
     params: { slug: slug.slug.current },
   }));
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 }
 

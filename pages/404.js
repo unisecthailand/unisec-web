@@ -1,12 +1,7 @@
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
-import fs from "fs";
-import matter from "gray-matter";
-
 import sortByTimestamp from "../utils/sortByTimestamp";
-import { getAllArticles } from "../utils/articles";
 
 import Link from "next/link";
 
@@ -29,49 +24,10 @@ const custom404 = (props) => {
       </main>
 
       <footer className="absolute top-full w-full">
-        <Footer
-          blogs={sortByTimestamp(props.blogs)}
-          projects={sortByTimestamp(props.projects)}
-        />
+        <Footer />
       </footer>
     </div>
   );
 };
-
-export async function getStaticProps(ctx) {
-  // Get All Markdown files
-  const files = await getAllArticles();
-  const articles = files.map((file) => {
-    const data = fs.readFileSync(`posts/${file}`).toString();
-    return { ...matter(data).data, id: file.split(".")[0] };
-  });
-
-  const blogs = [];
-  const projects = [];
-  const camps = [];
-  const competitions = [];
-  const conferences = [];
-
-  articles.forEach((article) => {
-    switch (article.type) {
-      case "BLOG":
-        blogs.push(article);
-        break;
-      case "PROJECT":
-        projects.push(article);
-        break;
-      default:
-        break;
-    }
-    return;
-  });
-
-  return {
-    props: {
-      blogs,
-      projects,
-    },
-  };
-}
 
 export default custom404;

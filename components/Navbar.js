@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 import ActiveLink from "./ActiveLink";
 import Link from "next/link";
+import Image from "next/image";
 
 import useScrollPosition from "@react-hook/window-scroll";
 
-const Menus = ({ text, link, isOpen, children }) => (
+const Menus = ({ text, link, isOpen, subMenus }) => (
   <div className="relative dropdown">
     <ActiveLink href={link} activeClassName="btn-active">
       <div
@@ -20,8 +21,8 @@ const Menus = ({ text, link, isOpen, children }) => (
       className={`dropdown-menu absolute top-full right-0 w-full bg-custom-primary z-50`}
     >
       <ul>
-        {children
-          ? children.map(({ text, link }) => (
+        {subMenus
+          ? subMenus.map(({ text, link }) => (
               <Link href={link} key={text}>
                 <li
                   className={`cursor-pointer py-2 text-center ${
@@ -38,7 +39,7 @@ const Menus = ({ text, link, isOpen, children }) => (
   </div>
 );
 
-const Navbar = ({page}) => {
+const Navbar = ({ page }) => {
   const [isOpen, setOpen] = useState(false);
   const menus = [
     {
@@ -77,20 +78,25 @@ const Navbar = ({page}) => {
           <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-24">
             <div className="logox">
               <Link href="/">
-                {page == "home" ?
-                  <img
+                {page == "home" ? (
+                  <Image
                     src="/assets/logo-w.webp"
+                    width={121}
+                    height={40}
                     className="cursor-pointer"
                     id="logo"
                     //className="w-auto h-10 cursor-pointer"
                     alt="UNISEC-Thailand"
-                  /> :
-                  <img
+                  />
+                ) : (
+                  <Image
                     src="/assets/logo-w.webp"
+                    width={121}
+                    height={40}
                     className="w-auto cursor-pointer"
                     alt="UNISEC-Thailand"
                   />
-                }
+                )}
               </Link>
             </div>
           </div>
@@ -101,7 +107,7 @@ const Navbar = ({page}) => {
                 text={text}
                 link={link}
                 isOpen={isOpen}
-                children={children}
+                subMenus={children}
               />
             ))}
           </div>
@@ -118,7 +124,7 @@ const Navbar = ({page}) => {
                   text={text}
                   link={link}
                   isOpen={isOpen}
-                  children={children}
+                  subMenus={children}
                 />
               ))}
             </div>
