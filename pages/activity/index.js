@@ -1,17 +1,12 @@
-import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CardList from "../../components/CardList";
 import MeetingCardList from "../../components/MeetingCardList";
 import sortByTimestamp from "../../utils/sortByTimestamp";
-
-import { useRouter } from "next/router";
 import { getAllPosts, getAllMeetingPosts } from "../../src/sanity/sanityClient";
 
 const Activity = (props) => {
-  const router = useRouter();
-
   return (
     <div className="relative min-h-screen bg-gradient">
       <Header />
@@ -29,44 +24,40 @@ const Activity = (props) => {
 
           <div className="flex flex-col lg:grid mt-8">
             <a className="anchor" id="online-meeting"></a>
-            <h1 className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}>
+            <h1
+              className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}
+            >
               Online Meeting
             </h1>
-            
-            <MeetingCardList
-              cards={props.meetings}
-              type="meetings"
-            />
+
+            <MeetingCardList cards={props.meetings} type="meetings" />
 
             <a className="anchor" id="our-activity"></a>
-            <h1 className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}>
+            <h1
+              className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}
+            >
               Our Activity
             </h1>
-            <CardList
-              cards={props.activities}
-              type="activity"
-            />
+            <CardList cards={props.activities} type="activity" />
 
             <a className="anchor" id="upcomming-activity"></a>
-            <h1 className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}>
+            <h1
+              className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}
+            >
               Upcomming Activity
             </h1>
-              <CardList
-              cards={props.upcommings}
-              type="activity"
-            />
-            <h1 className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}>
+            <CardList cards={props.upcommings} type="activity" />
+            <h1
+              className={`font-impact text-4xl text-white flex flex-col justify-end items-center cursor-pointer hover:text-white`}
+            >
               Research Projects
             </h1>
           </div>
-            <CardList
-              cards={props.none}
-              type="activity"
-            />
-          </div>
+          <CardList cards={props.none} type="activity" />
+        </div>
       </main>
       <footer className="absolute top-full w-full">
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   );
@@ -99,7 +90,7 @@ export async function getStaticProps() {
       upcommings,
       activities,
       meetings,
-      none
+      none,
     },
     revalidate: 300,
   };

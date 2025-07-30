@@ -1,7 +1,9 @@
 import { imageUrlFor } from "../../src/sanity/sanityClient";
 
 const Card = (props) => {
-  const img = props.image ? imageUrlFor(props.image).url() : "/assets/blank.webp"
+  const img = props.image
+    ? imageUrlFor(props.image).url()
+    : "/assets/blank.webp";
 
   return (
     <div className="relative h-full cursor-pointer transform hover:translate-x-2 hover:translate-y-2 transition duration-500">
@@ -22,7 +24,7 @@ const Card = (props) => {
               {props.title || "Untitled"}
             </h3>
             <div className="text-sm">by {props.author}</div>
-            <div className="mt-4 font-helvethaica-med-cond">
+            <div className="mt-4 font-helvethaica-med-cond text-2xl">
               {props.description
                 ? props.description.slice(0, 150) +
                   (props.description.length > 150 ? "..." : "")

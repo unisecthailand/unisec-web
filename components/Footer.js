@@ -1,5 +1,5 @@
 import Link from "next/link";
-import sortByTimestamp from "../utils/sortByTimestamp";
+import Image from "next/image";
 const Footer = () => {
   return (
     <div className="bg-custom-primary-variant bg-opacity-10">
@@ -7,8 +7,10 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-7 gap-8 py-6 px-6">
           <div className="flex flex-col justify-center items-center lg:col-span-2">
             <div className="justify-center items-center my-auto pr-4">
-              <img
+              <Image
                 src="/assets/logo-w.webp"
+                width={200}
+                height={50}
                 className=""
                 alt="UNISEC-Thailand"
               />

@@ -1,0 +1,119 @@
+@reference "./global.css";
+
+html,
+body {
+  background-color: var(--color-custom-primary);
+  @apply text-white;
+}
+
+.bg-gradient {
+  background: rgb(0, 23, 54);
+  background: linear-gradient(
+    144deg,
+    rgba(0, 23, 54, 1) 0%,
+    rgb(2, 40, 75) 100%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@utility bg-grid {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1) 0.1em,
+      transparent 0.1em
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0.1em, transparent 0.1em);
+  background-size: 5em 5em;
+}
+
+@utility btn-active {
+  background-color: #00204d; /* lighten(#001736, 10%) */
+}
+
+@media screen and (max-width: 1024px) {
+  .grid-stair {
+    > div {
+      @apply w-full;
+    }
+    > div:nth-child(2n + 1) {
+      @apply mb-8;
+    }
+    > div:nth-child(2n) {
+      @apply mt-12;
+    }
+  }
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -7rem;
+  visibility: hidden;
+}
+
+article h1 {
+  @apply text-4xl;
+  @apply font-bold;
+}
+
+article h2 {
+  @apply text-3xl;
+  @apply font-bold;
+}
+
+article h3 {
+  @apply text-2xl;
+  @apply font-bold;
+}
+
+article h4 {
+  @apply text-xl;
+  @apply font-bold;
+}
+
+article h5 {
+  @apply text-lg;
+  @apply font-bold;
+}
+
+article * {
+  @apply font-thsarabun-new;
+}
+
+article p {
+  @apply my-4;
+  line-height: 1.5; /* Moved from .markdown p */
+}
+
+article ul {
+  @apply list-disc;
+  @apply list-inside;
+  @apply mb-4;
+  @apply pl-2;
+  @apply text-3xl;
+}
+
+article img {
+  @apply mx-auto;
+  @apply max-h-full;
+}
+
+@media (min-width: 1024px) {
+  article * {
+    @apply font-thsarabun-new;
+    @apply text-3xl;
+  }
+}
+
+.markdown {
+  table {
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    padding: 6px 13px;
+    border: 1px solid white;
+  }
+}

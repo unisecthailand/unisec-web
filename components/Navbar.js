@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 import ActiveLink from "./ActiveLink";
 import Link from "next/link";
+import Image from "next/image";
 
 import useScrollPosition from "@react-hook/window-scroll";
 
-const Menus = ({ text, link, isOpen, children }) => (
-  <div className="relative dropdown">
+const Menus = ({ text, link, isOpen, subMenus }) => (
+  <div className="relative group">
     <ActiveLink href={link} activeClassName="btn-active">
       <div
         className={`relative cursor-pointer h-full text-center flex flex-col justify-center items-center ${
@@ -17,14 +18,14 @@ const Menus = ({ text, link, isOpen, children }) => (
       </div>
     </ActiveLink>
     <div
-      className={`dropdown-menu absolute top-full right-0 w-full bg-custom-primary z-50`}
+      className={`absolute top-full right-0 w-full bg-custom-primary z-50 hidden group-hover:block`}
     >
       <ul>
-        {children
-          ? children.map(({ text, link }) => (
+        {subMenus
+          ? subMenus.map(({ text, link }) => (
               <Link href={link} key={text}>
                 <li
-                  className={`cursor-pointer py-2 text-center ${
+                  className={`cursor-pointer px-4 py-2 text-center hover:bg-custom-primary rounded-md ${
                     isOpen ? "p-2" : "btn"
                   }`}
                 >
@@ -38,7 +39,7 @@ const Menus = ({ text, link, isOpen, children }) => (
   </div>
 );
 
-const Navbar = ({page}) => {
+const Navbar = ({ page, logoStyle, isClient }) => {
   const [isOpen, setOpen] = useState(false);
   const menus = [
     {
@@ -66,6 +67,15 @@ const Navbar = ({page}) => {
     }
   }, [scrollY]);
 
+  const defaultLogoStyle = {
+    left: 48,
+    width: 121,
+    top: 11,
+  };
+
+  const currentLogoStyle =
+    page === "home" && isClient ? logoStyle : defaultLogoStyle;
+
   return (
     <>
       <div
@@ -74,25 +84,34 @@ const Navbar = ({page}) => {
         } transition duration-300`}
       >
         <div className="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3">
-          <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-24">
-            <div className="logox">
-              <Link href="/">
-                {page == "home" ?
-                  <img
-                    src="/assets/logo-w.webp"
-                    className="cursor-pointer"
-                    id="logo"
-                    //className="w-auto h-10 cursor-pointer"
-                    alt="UNISEC-Thailand"
-                  /> :
-                  <img
-                    src="/assets/logo-w.webp"
-                    className="w-auto cursor-pointer"
-                    alt="UNISEC-Thailand"
-                  />
-                }
-              </Link>
-            </div>
+          <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-24 relative">
+            <Link href="/">
+              {page === "home" ? (
+                <Image
+                  src="/assets/logo-w.webp"
+                  width={484}
+                  height={160}
+                  className="cursor-pointer absolute"
+                  style={{
+                    left: `${currentLogoStyle.left}px`,
+                    top: `${currentLogoStyle.top}px`,
+                    width: `${currentLogoStyle.width}px`,
+                    height: "auto",
+                  }}
+                  alt="UNISEC-Thailand"
+                  priority
+                />
+              ) : (
+                <Image
+                  src="/assets/logo-w.webp"
+                  width={484}
+                  height={160}
+                  className="w-auto cursor-pointer"
+                  style={{ width: "121px" }}
+                  alt="UNISEC-Thailand"
+                />
+              )}
+            </Link>
           </div>
           <div className={`hidden md:grid grid-cols-3`}>
             {menus.map(({ text, link, children }, i) => (
@@ -101,7 +120,7 @@ const Navbar = ({page}) => {
                 text={text}
                 link={link}
                 isOpen={isOpen}
-                children={children}
+                subMenus={children}
               />
             ))}
           </div>
@@ -110,7 +129,7 @@ const Navbar = ({page}) => {
             <div
               className={`${
                 isOpen ? "block" : "hidden"
-              } absolute top-full right-0 bg-black bg-opacity-70 w-1/2`}
+              } absolute top-full right-0 bg-custom-primary-variant bg-opacity-90 w-1/2 p-2 rounded-md shadow-lg`}
             >
               {menus.map(({ text, link, children }, i) => (
                 <Menus
@@ -118,7 +137,7 @@ const Navbar = ({page}) => {
                   text={text}
                   link={link}
                   isOpen={isOpen}
-                  children={children}
+                  subMenus={children}
                 />
               ))}
             </div>

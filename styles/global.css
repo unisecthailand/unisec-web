@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@font-face {
+    font-family: "JetBrainsMono";
+    src: local("JetBrainsMono"), url(/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2) format("woff");
+}
+
+@font-face {
+    font-family: "DBHelvethaicaXBlkCond";
+    src: local("DBHelvethaicaXBlkCond"), url(/fonts/DBHelvethaicaX/DBHelvethaicaXBlkCond.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "DBHelvethaicaXMedCond";
+    src: local("DBHelvethaicaXMedCond"), url(/fonts/DBHelvethaicaX/DBHelvethaicaXMedCond.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Impact";
+    src: local("Impact"), url(/fonts/impact/impact.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "THSarabunNew";
+    font-weight: normal;
+    src: local("THSarabunNew"), url(/fonts/THSarabunNew/THSarabunNew.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "THSarabunNew";
+    font-weight: bold;
+    src: local("THSarabunNew Bold"), url(/fonts/THSarabunNew/THSarabunNewBold.ttf) format("truetype");
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "JetBrainsMono", "DBHelvethaicaXMedCond", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

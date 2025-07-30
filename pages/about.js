@@ -1,6 +1,3 @@
-import fs from "fs";
-import matter from "gray-matter";
-
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
@@ -10,9 +7,6 @@ import Partnership from "../components/Partnership";
 
 import Divider from "../components/Divider";
 import Footer from "../components/Footer";
-
-import sortByTimestamp from "../utils/sortByTimestamp";
-import { getAllArticles } from "../utils/articles";
 
 const About = (props) => {
   return (
@@ -25,54 +19,15 @@ const About = (props) => {
         <Divider />
         <Mission />
         <Divider />
-        {/*
-        <TeamMember />
-        <Divider /> */}
         <a className="anchor" id="partnership"></a>
         <Partnership />
       </main>
 
       <footer className="absolute top-full w-full">
-        <Footer
-          blogs={sortByTimestamp(props.blogs)}
-          projects={sortByTimestamp(props.projects)}
-        />
+        <Footer />
       </footer>
     </div>
   );
 };
-
-export async function getStaticProps() {
-  // Get All Markdown files
-  const files = await getAllArticles();
-  const articles = files.map((file) => {
-    const data = fs.readFileSync(`posts/${file}`).toString();
-    return { ...matter(data).data, id: file.split(".")[0] };
-  });
-
-  const blogs = [];
-  const projects = [];
-
-  articles.forEach((article) => {
-    switch (article.type) {
-      case "BLOG":
-        blogs.push(article);
-        break;
-      case "PROJECT":
-        projects.push(article);
-        break;
-      default:
-        break;
-    }
-    return;
-  });
-
-  return {
-    props: {
-      blogs,
-      projects,
-    },
-  };
-}
 
 export default About;
