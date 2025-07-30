@@ -28,6 +28,7 @@
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.0",
     "sanity": "^4.2.0",
+    "sanity-plugin-media": "^3.0.4",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
