@@ -13,11 +13,25 @@ import { useState, useEffect } from "react";
 function Home(props) {
   let banners = sortByTimestamp(props.banners);
   const [index, setIndex] = useState(0);
+  const [logoStyle, setLogoStyle] = useState({
+    left: 48,
+    width: 121,
+    top: 11,
+  });
+  const [logoBlockHeight, setLogoBlockHeight] = useState(0);
+  const [showHomeText, setShowHomeText] = useState(true);
+  const [isClient, setIsClient] = useState(false);
+
   if (banners.length == 0) {
     banners.push({
       title: "No Banner",
     });
   }
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((seconds) => (seconds === banners.length - 1 ? 0 : seconds + 1));
@@ -26,7 +40,9 @@ function Home(props) {
     return () => clearInterval(interval);
   }, [banners.length]);
 
-  const handleScroll = (event) => {
+  const handleScroll = () => {
+    if (!isClient) return;
+
     try {
       let userWidth = window.innerWidth;
       var pp = ((250 - window.scrollY) / 250) * 100;
@@ -34,14 +50,14 @@ function Home(props) {
       if (pp > 100) pp = 100;
       if (userWidth > 960) {
         var maxWidth = 420;
-
-        document.getElementById("logo").style.left =
-          48 + (((userWidth / 2 - maxWidth) / 2 - 48) / 100) * pp + "px";
-        document.getElementById("logo").style.width =
-          121 + ((maxWidth - 121) / 100) * pp + "px";
-        document.getElementById("logo").style.top =
-          11 + ((60 - 11) / 100) * pp + "px";
-        document.getElementById("home-text").style.display = "block";
+        const newStyle = {
+          left: 48 + (((userWidth / 2 - maxWidth) / 2 - 48) / 100) * pp,
+          width: 121 + ((maxWidth - 121) / 100) * pp,
+          top: 11 + ((60 - 11) / 100) * pp,
+        };
+        setLogoStyle(newStyle);
+        setShowHomeText(true);
+        setLogoBlockHeight(0);
       } else if (userWidth < 768) {
         var ppMax = 0.4 * userWidth - 28.6;
         var pp = ((ppMax - window.scrollY) / ppMax) * 100;
@@ -55,54 +71,72 @@ function Home(props) {
           offsetTopFactor = 0.5;
           offsetLeftFactor = 0.2;
         }
-        document.getElementById("logo").style.left =
-          48 + offsetLeftFactor * pp + "px";
-        document.getElementById("logo").style.width =
-          121 + ((maxWidth - 121) / 100) * pp + "px";
-        document.getElementById("logo").style.top =
-          11 + offsetTopFactor * pp + "px";
-        document.getElementById("logo-block").style.height =
-          (maxWidth / 113) * 40 - 50 + "px";
-        document.getElementById("home-text").style.display = "none";
+        const newStyle = {
+          left: 48 + offsetLeftFactor * pp,
+          width: 121 + ((maxWidth - 121) / 100) * pp,
+          top: 11 + offsetTopFactor * pp,
+        };
+        setLogoStyle(newStyle);
+        setLogoBlockHeight((maxWidth / 113) * 40 - 50);
+        setShowHomeText(false);
       } else {
         var maxWidth = userWidth / 2 - 121;
-        var offsetTop =
-          (document.getElementById("home-text").offsetHeight - 200) / 2;
+        const homeTextElement = document.getElementById("home-text");
+        var offsetTop = homeTextElement
+          ? (homeTextElement.offsetHeight - 200) / 2
+          : 0;
 
-        document.getElementById("logo").style.left = "48px";
-        document.getElementById("logo").style.width =
-          121 + ((maxWidth - 121) / 100) * pp + "px";
-        document.getElementById("logo").style.top =
-          11 + ((100 + offsetTop - 11) / 100) * pp + "px";
-        document.getElementById("home-text").style.display = "block";
+        const newStyle = {
+          left: 48,
+          width: 121 + ((maxWidth - 121) / 100) * pp,
+          top: 11 + ((100 + offsetTop - 11) / 100) * pp,
+        };
+        setLogoStyle(newStyle);
+        setShowHomeText(true);
+        setLogoBlockHeight(0);
       }
-    } catch (e) {}
+    } catch (e) {
+      console.warn("Scroll handler error:", e);
+    }
   };
 
   const router = useRouter();
   useEffect(() => {
+    if (!isClient) return;
+
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleScroll);
     router.events.on("routeChangeComplete", handleScroll);
+
+    handleScroll();
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
       router.events.off("routeChangeComplete", handleScroll);
     };
-  }, [router.events]);
-
-  handleScroll();
+  }, [router.events, isClient]);
 
   return (
     <div className="relative min-h-screen bg-gradient">
       <Header />
       <main className="pb-20">
-        <Navbar page="home" />
+        <Navbar page="home" logoStyle={logoStyle} isClient={isClient} />
         <br></br>
         <div className="pt-16 px-4 lg:px-16 md:px-8 lg:pb-0">
           <div className="grid mb-32 grid-cols-1 md:grid-cols-2 md:mb-12">
-            <div className="grid gap-8" id="logo-block"></div>
-            <div className="relative m-4" id="home-text">
+            <div
+              className="grid gap-8"
+              id="logo-block"
+              style={{
+                height: logoBlockHeight > 0 ? `${logoBlockHeight}px` : "auto",
+              }}
+            ></div>
+            <div
+              className="relative m-4"
+              id="home-text"
+              style={{ display: showHomeText ? "block" : "none" }}
+            >
               <div className="bg-custom-primary relative rounded-2xl border-2 border-white z-20">
                 <div
                   className="p-4 text-sm xl:text-base lg:h-44"

@@ -32,20 +32,6 @@ body {
   background-color: #00204d; /* lighten(#001736, 10%) */
 }
 
-#logo {
-  display: block;
-  position: absolute;
-  left: 48px;
-  top: 100px;
-  width: 480px;
-}
-
-.logox {
-  left: 48px;
-  top: 100px;
-  width: 121px;
-}
-
 @media screen and (max-width: 1024px) {
   .grid-stair {
     > div {

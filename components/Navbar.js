@@ -39,7 +39,7 @@ const Menus = ({ text, link, isOpen, subMenus }) => (
   </div>
 );
 
-const Navbar = ({ page }) => {
+const Navbar = ({ page, logoStyle, isClient }) => {
   const [isOpen, setOpen] = useState(false);
   const menus = [
     {
@@ -67,6 +67,15 @@ const Navbar = ({ page }) => {
     }
   }, [scrollY]);
 
+  const defaultLogoStyle = {
+    left: 48,
+    width: 121,
+    top: 11,
+  };
+
+  const currentLogoStyle =
+    page === "home" && isClient ? logoStyle : defaultLogoStyle;
+
   return (
     <>
       <div
@@ -75,29 +84,34 @@ const Navbar = ({ page }) => {
         } transition duration-300`}
       >
         <div className="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3">
-          <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-24">
-            <div className="logox">
-              <Link href="/">
-                {page == "home" ? (
-                  <Image
-                    src="/assets/logo-w.webp"
-                    width={484}
-                    height={160}
-                    className="cursor-pointer"
-                    id="logo"
-                    alt="UNISEC-Thailand"
-                  />
-                ) : (
-                  <Image
-                    src="/assets/logo-w.webp"
-                    width={484}
-                    height={160}
-                    className="w-auto cursor-pointer"
-                    alt="UNISEC-Thailand"
-                  />
-                )}
-              </Link>
-            </div>
+          <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-24 relative">
+            <Link href="/">
+              {page === "home" ? (
+                <Image
+                  src="/assets/logo-w.webp"
+                  width={484}
+                  height={160}
+                  className="cursor-pointer absolute"
+                  style={{
+                    left: `${currentLogoStyle.left}px`,
+                    top: `${currentLogoStyle.top}px`,
+                    width: `${currentLogoStyle.width}px`,
+                    height: "auto",
+                  }}
+                  alt="UNISEC-Thailand"
+                  priority
+                />
+              ) : (
+                <Image
+                  src="/assets/logo-w.webp"
+                  width={484}
+                  height={160}
+                  className="w-auto cursor-pointer"
+                  style={{ width: "121px" }}
+                  alt="UNISEC-Thailand"
+                />
+              )}
+            </Link>
           </div>
           <div className={`hidden md:grid grid-cols-3`}>
             {menus.map(({ text, link, children }, i) => (
