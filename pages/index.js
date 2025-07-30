@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import sortByTimestamp from "../utils/sortByTimestamp";
 import { getBanners } from "../src/sanity/sanityClient";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 function Home(props) {
   let banners = Array.isArray(props.banners)
@@ -42,7 +42,7 @@ function Home(props) {
     return () => clearInterval(interval);
   }, [banners.length]);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (!isClient) return;
 
     try {
@@ -101,7 +101,7 @@ function Home(props) {
     } catch (e) {
       console.warn("Scroll handler error:", e);
     }
-  };
+  }, [isClient]);
 
   const router = useRouter();
   useEffect(() => {
@@ -118,7 +118,7 @@ function Home(props) {
       window.removeEventListener("resize", handleScroll);
       router.events.off("routeChangeComplete", handleScroll);
     };
-  }, [router.events, isClient]);
+  }, [router.events, isClient, handleScroll]);
 
   return (
     <div className="relative min-h-screen bg-gradient">
