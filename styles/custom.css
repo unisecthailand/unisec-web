@@ -1,6 +1,8 @@
+@reference "./global.css";
+
 html,
 body {
-  @apply bg-custom-primary;
+  background-color: var(--color-custom-primary);
   @apply text-white;
 }
 
@@ -17,28 +19,7 @@ body {
   box-sizing: border-box;
 }
 
-.font-impact {
-  font-family: "Impact";
-  letter-spacing: 1px;
-}
-
-.font-jetbrains {
-  font-family: "JetBrainsMono";
-}
-
-.font-helvethaica-blk-cond {
-  font-family: "DBHelvethaicaXBlkCond";
-}
-
-.font-helvethaica-med-cond {
-  font-family: "DBHelvethaicaXMedCond";
-}
-
-.font-THSarabunTH {
-  font-family: "THSarabunNew";
-}
-
-.bg-grid {
+@utility bg-grid {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.1) 0.1em,
       transparent 0.1em
@@ -47,7 +28,7 @@ body {
   background-size: 5em 5em;
 }
 
-.btn-active {
+@utility btn-active {
   background-color: #00204d; /* lighten(#001736, 10%) */
 }
 
@@ -112,7 +93,7 @@ article h5 {
 }
 
 article * {
-  @apply font-THSarabunTH;
+  @apply font-thsarabun-new;
 }
 
 article p {
@@ -135,7 +116,7 @@ article img {
 
 @media (min-width: 1024px) {
   article * {
-    @apply font-THSarabunTH;
+    @apply font-thsarabun-new;
     @apply text-3xl;
   }
 }

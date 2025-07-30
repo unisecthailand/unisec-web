@@ -20,7 +20,7 @@ const MeetingCard = (props) => {
             />
           </div>
           <div className="p-5">
-            <h3 className="font-impact text-2xl tracking-wide">
+            <h3 className="font-impact text-2xl tracking-wide bold">
               {props.title || "Untitled"}
             </h3>
             <div className="text-sm">by {props.author}</div>

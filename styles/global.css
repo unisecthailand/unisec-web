@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
 @font-face {
     font-family: "JetBrainsMono";
     src: local("JetBrainsMono"), url(/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2) format("woff");
