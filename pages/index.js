@@ -11,7 +11,9 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 function Home(props) {
-  let banners = sortByTimestamp(props.banners);
+  let banners = Array.isArray(props.banners)
+    ? sortByTimestamp(props.banners)
+    : [];
   const [index, setIndex] = useState(0);
   const [logoStyle, setLogoStyle] = useState({
     left: 48,
@@ -82,9 +84,10 @@ function Home(props) {
       } else {
         var maxWidth = userWidth / 2 - 121;
         const homeTextElement = document.getElementById("home-text");
-        var offsetTop = homeTextElement
-          ? (homeTextElement.offsetHeight - 200) / 2
-          : 0;
+        var offsetTop = 0;
+        if (homeTextElement) {
+          offsetTop = (homeTextElement.offsetHeight - 200) / 2;
+        }
 
         const newStyle = {
           left: 48,
