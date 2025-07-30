@@ -6,10 +6,24 @@ const Header = ({ blog, title, description, author, cover }) => {
     return (
       <>
         <Head>
-          <title>{title} | UNISEC Thailand</title>
-          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
+          <title>{title}</title>
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicon/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon/favicon-16x16.png"
+          />
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="theme-color" content="#ffffff" />
 
@@ -22,7 +36,10 @@ const Header = ({ blog, title, description, author, cover }) => {
           <meta property="og:title" content={`${title} | UNISEC Thailand`} />
           <meta property="og:site_name" content="UNISEC Thailand" />
           <meta property="og:description" content={description} />
-          <meta property="og:image" content={cover ? imageUrlFor(cover).url() : "/assets/space.jpeg"} />
+          <meta
+            property="og:image"
+            content={cover ? imageUrlFor(cover).url() : "/assets/space.jpeg"}
+          />
         </Head>
       </>
     );
@@ -31,9 +48,23 @@ const Header = ({ blog, title, description, author, cover }) => {
       <>
         <Head>
           <title>UNISEC Thailand</title>
-          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicon/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon/favicon-16x16.png"
+          />
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="theme-color" content="#ffffff" />
 
