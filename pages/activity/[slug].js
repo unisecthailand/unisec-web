@@ -10,7 +10,6 @@ import { getAllSlugs } from "../../src/sanity/sanityClient";
 
 const textComponents = {
   types: {
-    // Render images
     image: ({ value }) => (
       <div className="my-4">
         <Image
@@ -62,7 +61,6 @@ const textComponents = {
     normal: ({ children }) => <p className="text-3xl mt-0">{children}</p>,
   },
   marks: {
-    // Render links
     link: ({ children, value }) => (
       <a
         href={value.href}
@@ -73,15 +71,11 @@ const textComponents = {
         {children}
       </a>
     ),
-    // Render file links
     fileLink: ({ value, children }) => (
       <a href={fileUrlFor(value)}>{children}</a>
     ),
-    // Strong text
     strong: ({ children }) => <strong className="font-bold">{children}</strong>,
-    // Emphasized text
     em: ({ children }) => <em className="italic">{children}</em>,
-    // Code text
     code: ({ children }) => (
       <code className="bg-gray-200 p-1 rounded">{children}</code>
     ),
@@ -230,8 +224,6 @@ export async function getStaticProps(ctx) {
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
-
-  // Map slugs to paths
   const paths = slugs.map((slug) => ({
     params: { slug: slug.slug.current },
   }));

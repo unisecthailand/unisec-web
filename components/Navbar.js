@@ -85,7 +85,6 @@ const Navbar = ({ page }) => {
                     height={160}
                     className="cursor-pointer"
                     id="logo"
-                    //className="w-auto h-10 cursor-pointer"
                     alt="UNISEC-Thailand"
                   />
                 ) : (

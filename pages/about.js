@@ -8,8 +8,6 @@ import Partnership from "../components/Partnership";
 import Divider from "../components/Divider";
 import Footer from "../components/Footer";
 
-import sortByTimestamp from "../utils/sortByTimestamp";
-
 const About = (props) => {
   return (
     <div className="relative min-h-screen bg-gradient">
@@ -21,9 +19,6 @@ const About = (props) => {
         <Divider />
         <Mission />
         <Divider />
-        {/*
-        <TeamMember />
-        <Divider /> */}
         <a className="anchor" id="partnership"></a>
         <Partnership />
       </main>
