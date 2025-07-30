@@ -19,12 +19,12 @@ const MeetingCard = (props) => {
               style={{ objectFit: "fill" }}
             />
           </div>
-          <div className="p-5">
-            <h3 className="font-impact text-2xl tracking-wide bold">
+          <div className="p-3 md:p-5">
+            <h3 className="font-impact text-md md:text-2xl tracking-wide bold">
               {props.title || "Untitled"}
             </h3>
-            <div className="text-sm">by {props.author}</div>
-            <div className="mt-4 font-helvethaica-med-cond text-lg">
+            <div className="text-xs md:text-sm">by {props.author}</div>
+            <div className="mt-2 md:mt-4 font-helvethaica-med-cond text-sm md:text-lg">
               {props.description
                 ? props.description.slice(0, 150) +
                   (props.description.length > 150 ? "..." : "")
@@ -33,7 +33,7 @@ const MeetingCard = (props) => {
           </div>
         </div>
       </div>
-      <div className="absolute w-full top-3 left-3 rounded-2xl bg-custom-primary border-2 border-gray-600 z-0 h-full"></div>
+      <div className="absolute w-full top-2 left-2 rounded-2xl bg-custom-primary border-2 border-gray-600 z-0 h-full"></div>
     </div>
   );
 };
