@@ -97,6 +97,9 @@ const Navbar = ({ page, logoStyle, isClient }) => {
                     top: `${currentLogoStyle.top}px`,
                     width: `${currentLogoStyle.width}px`,
                     height: "auto",
+                    transform: "translateZ(0)", // Hardware acceleration
+                    willChange: "transform, width", // Optimize for changes
+                    backfaceVisibility: "hidden", // Prevent flicker
                   }}
                   alt="UNISEC-Thailand"
                   priority

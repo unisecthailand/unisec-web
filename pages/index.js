@@ -11,9 +11,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 
 function Home(props) {
-  let banners = Array.isArray(props.banners)
-    ? sortByTimestamp(props.banners)
-    : [];
+  let banners = sortByTimestamp(props.banners);
   const [index, setIndex] = useState(0);
   const [logoStyle, setLogoStyle] = useState({
     left: 48,
@@ -42,7 +40,7 @@ function Home(props) {
     return () => clearInterval(interval);
   }, [banners.length]);
 
-  const handleScroll = useCallback(() => {
+  const handleScroll = () => {
     if (!isClient) return;
 
     try {
@@ -50,6 +48,7 @@ function Home(props) {
       var pp = ((250 - window.scrollY) / 250) * 100;
       if (pp < 0) pp = 0;
       if (pp > 100) pp = 100;
+
       if (userWidth > 960) {
         var maxWidth = 420;
         const newStyle = {
@@ -83,11 +82,11 @@ function Home(props) {
         setShowHomeText(false);
       } else {
         var maxWidth = userWidth / 2 - 121;
+        // Get home text height safely
         const homeTextElement = document.getElementById("home-text");
-        var offsetTop = 0;
-        if (homeTextElement) {
-          offsetTop = (homeTextElement.offsetHeight - 200) / 2;
-        }
+        var offsetTop = homeTextElement
+          ? (homeTextElement.offsetHeight - 200) / 2
+          : 0;
 
         const newStyle = {
           left: 48,
@@ -101,24 +100,46 @@ function Home(props) {
     } catch (e) {
       console.warn("Scroll handler error:", e);
     }
-  }, [isClient]);
+  };
+
+  const memoizedHandleScroll = useCallback(handleScroll, [
+    isClient,
+    setLogoStyle,
+    setShowHomeText,
+    setLogoBlockHeight,
+  ]);
+
+  // Throttled scroll handler for better mobile performance
+  const throttledScrollHandler = useCallback(() => {
+    if (typeof window !== "undefined" && window.requestAnimationFrame) {
+      window.requestAnimationFrame(memoizedHandleScroll);
+    } else {
+      memoizedHandleScroll();
+    }
+  }, [memoizedHandleScroll]);
 
   const router = useRouter();
   useEffect(() => {
     if (!isClient) return;
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll);
-    router.events.on("routeChangeComplete", handleScroll);
+    // Use passive listeners for better mobile performance
+    window.addEventListener("scroll", throttledScrollHandler, {
+      passive: true,
+    });
+    window.addEventListener("resize", throttledScrollHandler, {
+      passive: true,
+    });
+    router.events.on("routeChangeComplete", memoizedHandleScroll);
 
-    handleScroll();
+    // Initial call
+    memoizedHandleScroll();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-      router.events.off("routeChangeComplete", handleScroll);
+      window.removeEventListener("scroll", throttledScrollHandler);
+      window.removeEventListener("resize", throttledScrollHandler);
+      router.events.off("routeChangeComplete", memoizedHandleScroll);
     };
-  }, [router.events, isClient, handleScroll]);
+  }, [router.events, isClient, memoizedHandleScroll, throttledScrollHandler]);
 
   return (
     <div className="relative min-h-screen bg-gradient">
