@@ -25,7 +25,7 @@ const Menus = ({ text, link, isOpen, subMenus }) => (
           ? subMenus.map(({ text, link }) => (
               <Link href={link} key={text}>
                 <li
-                  className={`cursor-pointer py-2 text-center ${
+                  className={`cursor-pointer px-4 py-2 text-center hover:bg-custom-primary rounded-md ${
                     isOpen ? "p-2" : "btn"
                   }`}
                 >
@@ -115,7 +115,7 @@ const Navbar = ({ page }) => {
             <div
               className={`${
                 isOpen ? "block" : "hidden"
-              } absolute top-full right-0 bg-black bg-opacity-70 w-1/2`}
+              } absolute top-full right-0 bg-custom-primary-variant bg-opacity-90 w-1/2 p-2 rounded-md shadow-lg`}
             >
               {menus.map(({ text, link, children }, i) => (
                 <Menus
