@@ -18,7 +18,8 @@ const textComponents = {
           alt={value.alt || "Image"}
           width={800}
           height={600}
-          className="rounded-md shadow-md" // Add your desired styles
+          className="rounded-md shadow-md"
+          style={{ objectFit: "contain" }}
         />
         {value.caption && (
           <p className="text-sm text-gray-500 font-serif italic">
@@ -111,6 +112,7 @@ const Blog = (props) => {
               height={540}
               alt="cover"
               className="max-h-140"
+              style={{ objectFit: "contain" }}
             />
           </div>
           <div className="">
@@ -140,6 +142,7 @@ const Blog = (props) => {
                 height={540}
                 alt="capture"
                 className="max-h-140"
+                style={{ objectFit: "contain" }}
               />
             </div>
           )}

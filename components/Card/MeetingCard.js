@@ -9,16 +9,16 @@ const MeetingCard = (props) => {
   return (
     <div className="relative cursor-pointer transform hover:translate-x-2 hover:translate-y-2 transition duration-500">
       <div className="bg-custom-primary relative rounded-2xl border-2 border-gray-600 z-10">
-        <div className="relative h-full">
-          <Image
-            className="rounded-t-2xl"
-            src={img}
-            alt={props.title || "Untitled"}
-            layout="responsive"
-            width={400}
-            height={300}
-            objectFit="cover"
-          />
+        <div className="relative">
+          <div className="relative w-full pb-[75%] rounded-t-2xl overflow-hidden">
+            <Image
+              src={img}
+              alt={props.title || "Untitled"}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: "fill" }}
+            />
+          </div>
           <div className="p-5">
             <h3 className="font-impact text-2xl tracking-wide">
               {props.title || "Untitled"}
