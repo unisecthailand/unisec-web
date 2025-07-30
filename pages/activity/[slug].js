@@ -115,15 +115,13 @@ const Blog = (props) => {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <div className="">
-            <div className="container mx-auto p-8 border-b-2 border-white">
-              <h1 className="break-words font-bold text-5xl font-helvethaica-med-cond my-4">
-                {props.title}
-              </h1>
-              <article>
-                <PortableText value={props.body} components={textComponents} />
-              </article>
-            </div>
+          <div className="container mx-auto p-8 border-b-2 border-white">
+            <h1 className="break-words font-bold text-5xl font-helvethaica-med-cond my-4">
+              {props.title}
+            </h1>
+            <article>
+              <PortableText value={props.body} components={textComponents} />
+            </article>
           </div>
           {props.youtube != "none" && (
             <div className="container mx-auto p-6 flex justify-center border-b-2 border-white">

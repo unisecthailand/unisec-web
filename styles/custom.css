@@ -27,17 +27,14 @@ body {
 }
 
 .font-helvethaica-blk-cond {
-  @apply text-2xl;
   font-family: "DBHelvethaicaXBlkCond";
 }
 
 .font-helvethaica-med-cond {
-  @apply text-2xl;
   font-family: "DBHelvethaicaXMedCond";
 }
 
 .font-THSarabunTH {
-  @apply text-2xl;
   font-family: "THSarabunNew";
 }
 
