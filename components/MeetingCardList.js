@@ -21,12 +21,12 @@ const getResponsiveInitialCount = () => {
 const MeetingCardList = (props) => {
   const allCards = props.cards ?? [];
   const sortedCards = sortByTimestamp(allCards);
-  const [visibleCardsCount, setVisibleCardsCount] = useState(5);
+  const [visibleCardsCount, setVisibleCardsCount] = useState(10);
 
   useEffect(() => {
-    setVisibleCardsCount(getResponsiveInitialCount());
+    setVisibleCardsCount(getResponsiveInitialCount() * 2);
     const handleResize = () => {
-      setVisibleCardsCount(getResponsiveInitialCount());
+      setVisibleCardsCount(getResponsiveInitialCount() * 2);
     };
 
     window.addEventListener("resize", handleResize);
