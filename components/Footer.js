@@ -83,9 +83,14 @@ const Footer = () => {
                   UNISEC
                 </li>
               </Link>
-              <Link href="/about#partnership">
+              <Link href="/about#partners">
                 <li className="cursor-pointer hover:underline font-helvethaica-med-cond text-lg">
-                  Partnership
+                  Our Partners
+                </li>
+              </Link>
+              <Link href="/about#sponsors">
+                <li className="cursor-pointer hover:underline font-helvethaica-med-cond text-lg">
+                  Our Sponsors
                 </li>
               </Link>
             </ul>

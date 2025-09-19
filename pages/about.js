@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 
 import Unisec from "../components/About/Unisec";
 import Mission from "../components/About/Mission";
-import Partnership from "../components/Partnership";
+import Partner from "../components/Partner";
+import Sponsor from "../components/Sponsor";
 
 import Divider from "../components/Divider";
 import Footer from "../components/Footer";
@@ -13,14 +14,17 @@ const About = (props) => {
     <div className="relative min-h-screen bg-gradient">
       <Header />
 
-      <main className="py-20 lg:pt-40 xl:py-20">
+      <main className="pt-20 lg:pt-40 xl:pt-20">
         <Navbar />
         <Unisec />
         <Divider />
         <Mission />
         <Divider />
-        <a className="anchor" id="partnership"></a>
-        <Partnership />
+        <a className="anchor" id="partners"></a>
+        <Partner />
+        <Divider />
+        <a className="anchor" id="sponsors"></a>
+        <Sponsor />
       </main>
 
       <footer className="absolute top-full w-full">

@@ -1,9 +1,10 @@
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Activity from "../components/Home/Activity";
-import Partnership from "../components/Partnership";
 import Divider from "../components/Divider";
 import Footer from "../components/Footer";
+import Partner from "../components/Partner";
+import Sponsor from "../components/Sponsor";
 
 import sortByTimestamp from "../utils/sortByTimestamp";
 import { getBanners } from "../src/sanity/sanityClient";
@@ -144,7 +145,7 @@ function Home(props) {
   return (
     <div className="relative min-h-screen bg-gradient">
       <Header />
-      <main className="pb-20">
+      <main className="">
         <Navbar page="home" logoStyle={logoStyle} isClient={isClient} />
         <br></br>
         <div className="pt-16 px-4 lg:px-16 md:px-8 lg:pb-0">
@@ -179,7 +180,9 @@ function Home(props) {
         </div>
         <Activity activity={banners[index]} />
         <Divider />
-        <Partnership />
+        <Partner />
+        <Divider />
+        <Sponsor />
       </main>
 
       <footer className="absolute top-full w-full">
