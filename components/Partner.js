@@ -1,8 +1,8 @@
 import ImageCard from "./Card/ImageCard";
 
-const Partner = () => {
+const Partner = ({ partners }) => {
   return (
-    <div className="pb-20">
+    <div className="">
       <div className="container mx-auto p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16">
         <div className="md:col-span-2 flex flex-col justify-center items-start">
           <div className="relative my-16 w-full">
@@ -15,14 +15,10 @@ const Partner = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto p-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        <ImageCard image="/assets/partners/insted.png" />
-        <ImageCard image="/assets/partners/astronergy.jpg" />
-        <ImageCard image="/assets/partners/cuhar.png" />
-        <ImageCard
-          image="/assets/partners/star-lab.jpg"
-          backgroundSize="contain"
-        />
+      <div className="container mx-auto p-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        {partners.map((partner) => (
+          <ImageCard key={partner._id} image={partner.imageUrl} />
+        ))}
       </div>
     </div>
   );

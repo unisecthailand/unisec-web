@@ -1,28 +1,45 @@
-import {createClient} from '@sanity/client'
-import { dataset, projectId } from './env'
-import imageUrlBuilder from '@sanity/image-url'
+import { createClient } from "@sanity/client";
+import { dataset, projectId } from "./env";
+import { partnersQuery, sponsorsQuery } from "./lib/queries";
+import imageUrlBuilder from "@sanity/image-url";
 
 export const client = createClient({
   projectId: projectId,
   dataset: dataset,
   useCdn: true,
-  apiVersion: '2023-05-03',
-})
+  apiVersion: "2023-05-03",
+});
 
 const builder = imageUrlBuilder(client);
 export const imageUrlFor = (source) => builder.image(source);
 export const fileUrlFor = (file) => {
-    if (!file || !file.file.asset || !file.file.asset._ref) {
-      return null;
-    }
-    
-    const fileId = file.file.asset._ref.split('-')[1]; // Extract file ID from reference
-    const fileType = file.file.asset._ref.split('-')[2]; // Extract file ID from reference
-    return `https://cdn.sanity.io/files/${projectId}/${dataset}/${fileId}.${fileType}`;
-  };
+  if (!file || !file.file.asset || !file.file.asset._ref) {
+    return null;
+  }
+
+  const fileId = file.file.asset._ref.split("-")[1]; // Extract file ID from reference
+  const fileType = file.file.asset._ref.split("-")[2]; // Extract file ID from reference
+  return `https://cdn.sanity.io/files/${projectId}/${dataset}/${fileId}.${fileType}`;
+};
+
+export async function getPartners() {
+  const partners = await client.fetch(partnersQuery);
+  return partners.map((partner) => ({
+    ...partner,
+    imageUrl: imageUrlFor(partner.image).url(),
+  }));
+}
+
+export async function getSponsors() {
+  const sponsors = await client.fetch(sponsorsQuery);
+  return sponsors.map((sponsor) => ({
+    ...sponsor,
+    imageUrl: imageUrlFor(sponsor.image).url(),
+  }));
+}
 
 export async function getPostBySlug(slug) {
-    const query = `*[(_type == "meeting-post" || _type == "post") && slug.current == "${slug}"][0]{
+  const query = `*[(_type == "meeting-post" || _type == "post") && slug.current == "${slug}"][0]{
         slug,
         title,
         type,
@@ -38,21 +55,21 @@ export async function getPostBySlug(slug) {
         schedule,
         report,
         powerpoint,
-        }`
-    const post = await client.fetch(query);
-    return post
+        }`;
+  const post = await client.fetch(query);
+  return post;
 }
 
 export async function getAllSlugs() {
-    const query = `*[(_type == "meeting-post" || _type == "post")]{
+  const query = `*[(_type == "meeting-post" || _type == "post")]{
         slug,
-        }`
-    const slugs = await client.fetch(query);
-    return slugs
+        }`;
+  const slugs = await client.fetch(query);
+  return slugs;
 }
 
 export async function getAllPosts() {
-    const query = `*[_type == "post"]{
+  const query = `*[_type == "post"]{
         slug,
         title,
         type,
@@ -61,13 +78,13 @@ export async function getAllPosts() {
         description,
         cover,
         cover4b3,
-        }`
-    const posts = await client.fetch(query);
-    return posts
+        }`;
+  const posts = await client.fetch(query);
+  return posts;
 }
 
 export async function getAllMeetingPosts() {
-    const query = `*[_type == "meeting-post"]{
+  const query = `*[_type == "meeting-post"]{
         slug,
         title,
         type,
@@ -76,13 +93,13 @@ export async function getAllMeetingPosts() {
         description,
         cover,
         cover4b3,
-        }`
-    const meetingPosts = await client.fetch(query);
-    return meetingPosts
+        }`;
+  const meetingPosts = await client.fetch(query);
+  return meetingPosts;
 }
 
 export async function getBanners() {
-    const query = `*[_type == "banner"]{
+  const query = `*[_type == "banner"]{
         slug,
         title,
         date,
@@ -98,17 +115,17 @@ export async function getBanners() {
             description,
             cover
         }
-        }`
-    const banners = await client.fetch(query);
-    banners.forEach((banner) => {
-      if(banner.post != null){
-        banner.title=banner.post.title;
-        banner.date=banner.post.date;
-        banner.author=banner.post.author;
-        banner.description=banner.post.description;
-        banner.cover=banner.post.cover;
-        banner.slug=banner.post.slug.current;
-      }
-    })
-    return banners
+        }`;
+  const banners = await client.fetch(query);
+  banners.forEach((banner) => {
+    if (banner.post != null) {
+      banner.title = banner.post.title;
+      banner.date = banner.post.date;
+      banner.author = banner.post.author;
+      banner.description = banner.post.description;
+      banner.cover = banner.post.cover;
+      banner.slug = banner.post.slug.current;
+    }
+  });
+  return banners;
 }

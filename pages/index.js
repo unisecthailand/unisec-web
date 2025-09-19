@@ -7,7 +7,11 @@ import Partner from "../components/Partner";
 import Sponsor from "../components/Sponsor";
 
 import sortByTimestamp from "../utils/sortByTimestamp";
-import { getBanners } from "../src/sanity/sanityClient";
+import {
+  getBanners,
+  getPartners,
+  getSponsors,
+} from "../src/sanity/sanityClient";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 
@@ -180,9 +184,8 @@ function Home(props) {
         </div>
         <Activity activity={banners[index]} />
         <Divider />
-        <Partner />
-        <Divider />
-        <Sponsor />
+        <Partner partners={props.partners} />
+        <Sponsor sponsors={props.sponsors} />
       </main>
 
       <footer className="absolute top-full w-full">
@@ -194,10 +197,14 @@ function Home(props) {
 
 export async function getStaticProps() {
   const banners = await getBanners();
+  const partners = await getPartners();
+  const sponsors = await getSponsors();
 
   return {
     props: {
       banners,
+      partners,
+      sponsors,
     },
     revalidate: 300,
   };

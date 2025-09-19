@@ -85,12 +85,12 @@ const Footer = () => {
               </Link>
               <Link href="/about#partners">
                 <li className="cursor-pointer hover:underline font-helvethaica-med-cond text-lg">
-                  Our Partners
+                  Partners
                 </li>
               </Link>
               <Link href="/about#sponsors">
                 <li className="cursor-pointer hover:underline font-helvethaica-med-cond text-lg">
-                  Our Sponsors
+                  Sponsors
                 </li>
               </Link>
             </ul>

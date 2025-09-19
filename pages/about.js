@@ -8,6 +8,7 @@ import Sponsor from "../components/Sponsor";
 
 import Divider from "../components/Divider";
 import Footer from "../components/Footer";
+import { getPartners, getSponsors } from "../src/sanity/sanityClient";
 
 const About = (props) => {
   return (
@@ -21,10 +22,9 @@ const About = (props) => {
         <Mission />
         <Divider />
         <a className="anchor" id="partners"></a>
-        <Partner />
-        <Divider />
+        <Partner partners={props.partners} />
         <a className="anchor" id="sponsors"></a>
-        <Sponsor />
+        <Sponsor sponsors={props.sponsors} />
       </main>
 
       <footer className="absolute top-full w-full">
@@ -33,5 +33,18 @@ const About = (props) => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const partners = await getPartners();
+  const sponsors = await getSponsors();
+
+  return {
+    props: {
+      partners,
+      sponsors,
+    },
+    revalidate: 300,
+  };
+}
 
 export default About;
