@@ -93,6 +93,11 @@ const Footer = () => {
                   Sponsors
                 </li>
               </Link>
+              <Link href="/documents/registration-certificate.pdf">
+                <li className="cursor-pointer hover:underline font-helvethaica-med-cond text-lg">
+                  Certificate
+                </li>
+              </Link>
             </ul>
           </div>
           <div>
