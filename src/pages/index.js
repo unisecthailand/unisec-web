@@ -1,17 +1,17 @@
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Activity from "../components/Home/Activity";
-import Divider from "../components/Divider";
-import Footer from "../components/Footer";
-import Partner from "../components/Partner";
-import Sponsor from "../components/Sponsor";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Activity from "../../components/Home/Activity";
+import Divider from "../../components/Divider";
+import Footer from "../../components/Footer";
+import Partner from "../../components/Partner";
+import Sponsor from "../../components/Sponsor";
 
-import sortByTimestamp from "../utils/sortByTimestamp";
+import sortByTimestamp from "../../utils/sortByTimestamp";
 import {
   getBanners,
   getPartners,
   getSponsors,
-} from "../src/sanity/sanityClient";
+} from "../sanity/sanityClient";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 
@@ -45,7 +45,7 @@ function Home(props) {
     return () => clearInterval(interval);
   }, [banners.length]);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (!isClient) return;
 
     try {
@@ -105,14 +105,11 @@ function Home(props) {
     } catch (e) {
       console.warn("Scroll handler error:", e);
     }
-  };
+  }, [isClient, setLogoStyle, setShowHomeText, setLogoBlockHeight]);
 
-  const memoizedHandleScroll = useCallback(handleScroll, [
-    isClient,
-    setLogoStyle,
-    setShowHomeText,
-    setLogoBlockHeight,
-  ]);
+  const memoizedHandleScroll = useCallback(() => {
+    handleScroll();
+  }, [handleScroll]);
 
   // Throttled scroll handler for better mobile performance
   const throttledScrollHandler = useCallback(() => {

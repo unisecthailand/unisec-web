@@ -1,10 +1,10 @@
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import CardList from "../../components/CardList";
-import MeetingCardList from "../../components/MeetingCardList";
-import sortByTimestamp from "../../utils/sortByTimestamp";
-import { getAllPosts, getAllMeetingPosts } from "../../src/sanity/sanityClient";
+import Header from "../../../components/Header";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import CardList from "../../../components/CardList";
+import MeetingCardList from "../../../components/MeetingCardList";
+import sortByTimestamp from "../../../utils/sortByTimestamp";
+import { getAllPosts, getAllMeetingPosts } from "../../sanity/sanityClient";
 
 const Activity = (props) => {
   return (

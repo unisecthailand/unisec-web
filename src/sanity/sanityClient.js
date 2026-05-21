@@ -1,7 +1,7 @@
 import { createClient } from "@sanity/client";
 import { dataset, projectId } from "./env";
 import { partnersQuery, sponsorsQuery } from "./lib/queries";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 
 export const client = createClient({
   projectId: projectId,
@@ -10,7 +10,7 @@ export const client = createClient({
   apiVersion: "2023-05-03",
 });
 
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 export const imageUrlFor = (source) => builder.image(source);
 export const fileUrlFor = (file) => {
   if (!file || !file.file.asset || !file.file.asset._ref) {

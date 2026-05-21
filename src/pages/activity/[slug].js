@@ -1,12 +1,12 @@
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import Parallex from "../../components/Parallex";
+import Header from "../../../components/Header";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import Parallex from "../../../components/Parallex";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
-import { imageUrlFor, fileUrlFor } from "../../src/sanity/sanityClient";
-import { getPostBySlug } from "../../src/sanity/sanityClient";
-import { getAllSlugs } from "../../src/sanity/sanityClient";
+import { imageUrlFor, fileUrlFor } from "../../sanity/sanityClient";
+import { getPostBySlug } from "../../sanity/sanityClient";
+import { getAllSlugs } from "../../sanity/sanityClient";
 
 const textComponents = {
   types: {
