@@ -1,0 +1,16 @@
+# humans.txt
+# http://humanstxt.org/
+
+/* TEAM */
+Developer: Kraiwit Charojrochkul
+Github: https://github.com/SecretKr
+From: Thailand
+
+/* OWNER */
+Organization: UNISEC Thailand
+Github: https://github.com/unisecthailand
+
+/* SITE */
+Standards: HTML5, CSS3
+Components: Next.js, React, Tailwind CSS
+Software: Sanity CMS
