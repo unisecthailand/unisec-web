@@ -159,13 +159,13 @@ function Home(props) {
               }}
             ></div>
             <div
-              className="relative m-4 xl:max-w-[80%]"
+              className="relative m-4 lg:max-w-[80%]"
               id="home-text"
               style={{ display: showHomeText ? "block" : "none" }}
             >
               <div className="bg-custom-primary relative rounded-2xl border-2 border-white z-20">
                 <div
-                  className="p-4 text-sm xl:text-base lg:h-44"
+                  className="p-4 text-sm xl:text-base lg:h-50"
                   data-aos="fade"
                 >
                   UNISEC-Global is an international nonprofit body, consisting

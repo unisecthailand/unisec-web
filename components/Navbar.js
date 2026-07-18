@@ -110,8 +110,8 @@ const Navbar = ({ page, logoStyle, isClient }) => {
                   src="/assets/logo-w.webp"
                   width={484}
                   height={160}
-                  className="w-auto cursor-pointer"
-                  style={{ width: "121px" }}
+                  className="cursor-pointer"
+                  style={{ width: "121px", height: "auto" }}
                   alt="UNISEC-Thailand"
                 />
               )}

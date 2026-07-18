@@ -106,7 +106,7 @@ const Blog = (props) => {
               height={540}
               alt="cover"
               className="max-h-140"
-              style={{ objectFit: "contain" }}
+              style={{ objectFit: "contain", width: "auto" }}
             />
           </div>
           <div className="container mx-auto p-8 border-b-2 border-white">
@@ -134,7 +134,7 @@ const Blog = (props) => {
                 height={540}
                 alt="capture"
                 className="max-h-140"
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: "contain", width: "auto" }}
               />
             </div>
           )}
