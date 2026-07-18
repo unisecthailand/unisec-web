@@ -48,10 +48,7 @@ export const meetingPostType = defineType({
       name: 'cover',
       type: 'image',
     }),
-    defineField({
-      name: 'cover4b3',
-      type: 'image',
-    }),
+
     defineField({
       name: 'capture',
       type: 'image',

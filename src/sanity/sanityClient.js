@@ -50,7 +50,6 @@ export async function getPostBySlug(slug) {
         author,
         description,
         cover,
-        cover4b3,
         capture,
         youtube,
         body,
@@ -79,7 +78,6 @@ export async function getAllPosts() {
         author,
         description,
         cover,
-        cover4b3,
         }`;
   const posts = await client.fetch(query);
   return posts;
@@ -94,7 +92,6 @@ export async function getAllMeetingPosts() {
         author,
         description,
         cover,
-        cover4b3,
         }`;
   const meetingPosts = await client.fetch(query);
   return meetingPosts;
