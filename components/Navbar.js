@@ -84,7 +84,7 @@ const Navbar = ({ page, logoStyle, isClient }) => {
         className={`fixed top-0 left-0 w-full z-50 ${navbarBg ? "bg-custom-primary shadow-2xl" : ""
           } transition duration-300`}
       >
-        <div className="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3 px-4">
           <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-24 relative">
             <Link href="/">
               {page === "home" ? (

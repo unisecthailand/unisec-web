@@ -159,7 +159,7 @@ function Home(props) {
               }}
             ></div>
             <div
-              className="relative m-4"
+              className="relative m-4 xl:max-w-[80%]"
               id="home-text"
               style={{ display: showHomeText ? "block" : "none" }}
             >

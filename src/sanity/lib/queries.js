@@ -5,6 +5,7 @@ export const partnersQuery = groq`
     _id,
     name,
     image,
+    website,
   }
 `;
 
@@ -13,5 +14,6 @@ export const sponsorsQuery = groq`
     _id,
     name,
     image,
+    website,
   }
 `;

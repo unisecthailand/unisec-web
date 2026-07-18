@@ -27,6 +27,7 @@ export async function getPartners() {
   return partners.map((partner) => ({
     ...partner,
     imageUrl: imageUrlFor(partner.image).url(),
+    website: partner.website || null,
   }));
 }
 
@@ -35,6 +36,7 @@ export async function getSponsors() {
   return sponsors.map((sponsor) => ({
     ...sponsor,
     imageUrl: imageUrlFor(sponsor.image).url(),
+    website: sponsor.website || null,
   }));
 }
 
