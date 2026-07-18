@@ -10,9 +10,8 @@ const Menus = ({ text, link, isOpen, subMenus }) => (
   <div className="relative group">
     <ActiveLink href={link} activeClassName="btn-active">
       <div
-        className={`relative cursor-pointer h-full text-center flex flex-col justify-center items-center ${
-          isOpen ? "p-2" : "btn"
-        }`}
+        className={`relative cursor-pointer h-full text-center flex flex-col justify-center items-center ${isOpen ? "p-2" : "btn"
+          }`}
       >
         {text}
       </div>
@@ -23,16 +22,15 @@ const Menus = ({ text, link, isOpen, subMenus }) => (
       <ul>
         {subMenus
           ? subMenus.map(({ text, link }) => (
-              <Link href={link} key={text}>
-                <li
-                  className={`cursor-pointer px-4 py-2 text-center hover:bg-custom-primary rounded-md ${
-                    isOpen ? "p-2" : "btn"
+            <Link href={link} key={text}>
+              <li
+                className={`cursor-pointer px-4 py-2 text-center hover:bg-custom-primary rounded-md ${isOpen ? "p-2" : "btn"
                   }`}
-                >
-                  {text}
-                </li>
-              </Link>
-            ))
+              >
+                {text}
+              </li>
+            </Link>
+          ))
           : null}
       </ul>
     </div>
@@ -51,8 +49,12 @@ const Navbar = ({ page, logoStyle, isClient }) => {
       link: "/activity",
     },
     {
-      text: "About",
+      text: "About us",
       link: "/about",
+    },
+    {
+      text: "Support us",
+      link: "/support",
     },
   ];
 
@@ -79,11 +81,10 @@ const Navbar = ({ page, logoStyle, isClient }) => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 w-full z-50 ${
-          navbarBg ? "bg-custom-primary shadow-2xl" : ""
-        } transition duration-300`}
+        className={`fixed top-0 left-0 w-full z-50 ${navbarBg ? "bg-custom-primary shadow-2xl" : ""
+          } transition duration-300`}
       >
-        <div className="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3 px-4">
           <div className="col-span-2 md:col-span-1 xl:col-span-2 flex flex-col justify-center items-start py-2 px-12 h-24 relative">
             <Link href="/">
               {page === "home" ? (
@@ -109,14 +110,14 @@ const Navbar = ({ page, logoStyle, isClient }) => {
                   src="/assets/logo-w.webp"
                   width={484}
                   height={160}
-                  className="w-auto cursor-pointer"
-                  style={{ width: "121px" }}
+                  className="cursor-pointer"
+                  style={{ width: "121px", height: "auto" }}
                   alt="UNISEC-Thailand"
                 />
               )}
             </Link>
           </div>
-          <div className={`hidden md:grid grid-cols-3`}>
+          <div className={`hidden md:grid grid-cols-4 px-4`}>
             {menus.map(({ text, link, children }, i) => (
               <Menus
                 key={i}
@@ -130,9 +131,8 @@ const Navbar = ({ page, logoStyle, isClient }) => {
           <div className="flex md:hidden flex-col justify-center items-end px-12">
             <Hamburger toggled={isOpen} toggle={setOpen} />
             <div
-              className={`${
-                isOpen ? "block" : "hidden"
-              } absolute top-full right-0 bg-custom-primary-variant bg-opacity-90 w-1/2 p-2 rounded-md shadow-lg`}
+              className={`${isOpen ? "block" : "hidden"
+                } absolute top-full right-0 bg-custom-primary-variant bg-opacity-90 w-1/2 p-2 rounded-md shadow-lg`}
             >
               {menus.map(({ text, link, children }, i) => (
                 <Menus

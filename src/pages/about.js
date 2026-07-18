@@ -1,14 +1,14 @@
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 
-import Unisec from "../components/About/Unisec";
-import Mission from "../components/About/Mission";
-import Partner from "../components/Partner";
-import Sponsor from "../components/Sponsor";
+import Unisec from "../../components/About/Unisec";
+import Mission from "../../components/About/Mission";
+import Partner from "../../components/Partner";
+import Sponsor from "../../components/Sponsor";
 
-import Divider from "../components/Divider";
-import Footer from "../components/Footer";
-import { getPartners, getSponsors } from "../src/sanity/sanityClient";
+import Divider from "../../components/Divider";
+import Footer from "../../components/Footer";
+import { getPartners, getSponsors } from "../sanity/sanityClient";
 
 const About = (props) => {
   return (

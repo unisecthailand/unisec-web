@@ -1,4 +1,4 @@
-import {DocumentTextIcon} from '@sanity/icons'
+import {DocumentTextIcon} from '@sanity/icons/DocumentText'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const meetingPostType = defineType({
@@ -48,10 +48,7 @@ export const meetingPostType = defineType({
       name: 'cover',
       type: 'image',
     }),
-    defineField({
-      name: 'cover4b3',
-      type: 'image',
-    }),
+
     defineField({
       name: 'capture',
       type: 'image',

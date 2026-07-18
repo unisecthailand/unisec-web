@@ -1,7 +1,7 @@
 import { createClient } from "@sanity/client";
 import { dataset, projectId } from "./env";
 import { partnersQuery, sponsorsQuery } from "./lib/queries";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 
 export const client = createClient({
   projectId: projectId,
@@ -10,7 +10,7 @@ export const client = createClient({
   apiVersion: "2023-05-03",
 });
 
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 export const imageUrlFor = (source) => builder.image(source);
 export const fileUrlFor = (file) => {
   if (!file || !file.file.asset || !file.file.asset._ref) {
@@ -27,6 +27,7 @@ export async function getPartners() {
   return partners.map((partner) => ({
     ...partner,
     imageUrl: imageUrlFor(partner.image).url(),
+    website: partner.website || null,
   }));
 }
 
@@ -35,6 +36,7 @@ export async function getSponsors() {
   return sponsors.map((sponsor) => ({
     ...sponsor,
     imageUrl: imageUrlFor(sponsor.image).url(),
+    website: sponsor.website || null,
   }));
 }
 
@@ -48,7 +50,6 @@ export async function getPostBySlug(slug) {
         author,
         description,
         cover,
-        cover4b3,
         capture,
         youtube,
         body,
@@ -77,7 +78,6 @@ export async function getAllPosts() {
         author,
         description,
         cover,
-        cover4b3,
         }`;
   const posts = await client.fetch(query);
   return posts;
@@ -92,7 +92,6 @@ export async function getAllMeetingPosts() {
         author,
         description,
         cover,
-        cover4b3,
         }`;
   const meetingPosts = await client.fetch(query);
   return meetingPosts;

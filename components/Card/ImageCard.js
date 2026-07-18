@@ -1,5 +1,5 @@
-const ImageCard = ({ image, backgroundSize }) => {
-  return (
+const ImageCard = ({ image, backgroundSize, website }) => {
+  const cardContent = (
     <div className="relative">
       <div
         className="bg-white relative rounded-2xl border-2 border-white z-20"
@@ -17,6 +17,22 @@ const ImageCard = ({ image, backgroundSize }) => {
       ></div>
     </div>
   );
+
+  if (website) {
+    return (
+      <a
+        href={website}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block transform transition-transform duration-300"
+        title="Visit website"
+      >
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 };
 
 export default ImageCard;

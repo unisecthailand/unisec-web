@@ -56,7 +56,7 @@ const MeetingCardList = (props) => {
             <div data-aos="fade-up">
               <MeetingCard
                 title={card.title}
-                image={card.cover4b3 ?? card.cover}
+                image={card.cover}
                 author={card.author ?? "UNISEC Thailand"}
                 description={card.description}
               />

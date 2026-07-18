@@ -10,7 +10,8 @@ const Footer = () => {
               <Image
                 src="/assets/logo-w.webp"
                 width={200}
-                height={50}
+                height={66}
+                style={{ height: "auto" }}
                 className=""
                 alt="UNISEC-Thailand"
               />
@@ -155,7 +156,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center pb-6 px-16 lg:px-0">
-        Copyright © 2021 UNISEC Thailand. All rights reserved
+        Copyright © {new Date().getFullYear()} UNISEC Thailand. All rights reserved
       </div>
     </div>
   );
