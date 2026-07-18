@@ -19,7 +19,7 @@
     "aos": "^2.3.4",
     "gray-matter": "^4.0.3",
     "hamburger-react": "^2.5.1",
-    "next": "^15.4.5",
+    "next": "15.4.10",
     "next-sanity": "^10.0.6",
     "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",
