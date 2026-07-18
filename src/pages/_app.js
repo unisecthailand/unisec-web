@@ -5,12 +5,21 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import Head from "next/head";
+
 function MyApp({ Component, pageProps, router }) {
   useEffect(() => {
     AOS.init({});
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <link rel="author" href="/humans.txt" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
