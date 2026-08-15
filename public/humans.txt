@@ -3,7 +3,7 @@
 
 /* TEAM */
 Developer: Kraiwit Charojrochkul
-Github: https://github.com/SecretKr
+Github: https://github.com/KraiwitC
 From: Thailand
 
 /* OWNER */
